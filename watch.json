@@ -1,0 +1,64 @@
+{
+  "watches": [
+    {
+      "name": "Classic Elegance",
+      "price": 499.99,
+      "vendor": "TimeCrafters",
+      "type": "Analog",
+      "colors": ["Silver", "Gold"],
+      "sizes": ["Small", "Medium", "Large"],
+      "images": [
+        "https://i.ibb.co/VDTTH75/watch1v1.png",
+        "https://i.ibb.co/FWbDSZ7/watch-1v2.png"
+      ]
+    },
+    {
+      "name": "Sporty Precision",
+      "price": 349.95,
+      "vendor": "ChronoMasters",
+      "type": "Digital",
+      "colors": ["Silver", "Gold"],
+      "sizes": ["Medium", "Large", "Extra Large"],
+      "images": [
+        "https://i.ibb.co/MSHHZW6/watch-2v1.png",
+        "https://i.ibb.co/ysXgZVn/watch-2v2.png"
+      ]
+    },
+    {
+      "name": "Tech Explorer",
+      "price": 449.99,
+      "vendor": "InnoTime",
+      "type": "Smartwatch",
+      "colors": ["Black", "Gold"],
+      "sizes": ["Small", "Medium", "Large"],
+      "images": [
+        "https://i.ibb.co/Wnq7dbX/watch-8v1.png",
+        "https://i.ibb.co/P6Sv3vH/watch-8v2.png"
+      ]
+    },
+    {
+      "name": "Adventurer's Choice",
+      "price": 299.99,
+      "vendor": "Expedition Gear",
+      "type": "Analog",
+      "colors": ["Pink", "Rose Gold"],
+      "sizes": ["Medium", "Large", "Extra Large"],
+      "images": [
+        "https://i.ibb.co/Vw3bf4F/Watch18v1.png",
+        "https://i.ibb.co/ph33VGQ/Watch18v2.png"
+      ]
+    },
+    {
+      "name": "Fashion Fusion",
+      "price": 499.95,
+      "vendor": "StyleCraft",
+      "type": "Analog",
+      "colors": ["Mate Black", "Dark Black"],
+      "sizes": ["Small", "Medium", "Large"],
+      "images": [
+        "https://i.ibb.co/mh5N2p2/watch-14v1.png",
+        "https://i.ibb.co/KWZJfNL/watch-14v2.png"
+      ]
+    }
+  ]
+}

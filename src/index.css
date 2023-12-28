@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav-footer-color {
+  color: #0f1c55;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+}
+.zoom {
+  transform: scale(1.5);
+}
+.dash_classes :not(:empty) {
+  color: black;
+}
+.active {
+  color: #cca471;
+  transition: all 0.3s ease-in-out;
+}
+.normal-text {
+  font-family: "Arial", sans-serif;
+}
