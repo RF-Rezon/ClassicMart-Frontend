@@ -41,7 +41,7 @@ const Register = () => {
                     title: "Ya!..",
                     text: `Sign up successful.`,
                   }),
-                    setLoading(false)
+                    
                     navigate("/");
                 }
               });
@@ -52,7 +52,7 @@ const Register = () => {
               title: "OOps!..",
               text: `Sign up failed.`,
             });
-            setLoading(false)
+            
             navigate("/login");
           });
       })
@@ -62,7 +62,7 @@ const Register = () => {
           title: "OOps!..",
           text: `Sign up failed. Use a new email.`,
         });
-        setLoading(false)
+        
         navigate("/login");
       });
   };

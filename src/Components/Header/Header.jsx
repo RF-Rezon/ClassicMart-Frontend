@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <div className="pt-20">
       <div className="flex bg-custonBlackBg p-20 items-center justify-center">
@@ -15,7 +17,7 @@ const Header = () => {
           <p className="py-1 text-customGray font-medium text-lg mb-3">
           It's an exquisite watch emporium where timepieces transcend mere functionality, embodying the very essence of craftsmanship and style.
           </p>
-          <button className="uppercase w-52 py-3 px-4 bg-buttonBg font-medium font-playfair border-b-[3px] border-b-customGold text-white text-sm hover:bg-customGold transition duration-500">
+          <button onClick={()=> navigate("/allProducts") } className="uppercase w-52 py-3 px-4 bg-buttonBg font-medium font-playfair border-b-[3px] border-b-customGold text-white text-sm hover:bg-customGold transition duration-500">
             Shop Now
           </button>
           <div className="w-full h-[3px] pt-12 flex items-center justify-end">

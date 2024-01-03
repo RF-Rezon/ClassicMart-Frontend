@@ -40,7 +40,7 @@ const Login = () => {
           title: "Oops!..",
           text: `Sign in problem with google.`,
         });
-        setLoading(false);
+        
       });
   };
 
@@ -60,8 +60,7 @@ const Login = () => {
           title: "OOps!..",
           text: `Sign in problem with Email And Password.`,
         });
-        setLoading(false)
-        navigate("/");
+                navigate("/");
       });
   };
 
