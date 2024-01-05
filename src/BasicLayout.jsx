@@ -7,7 +7,7 @@ import Navbar from './Components/Navbar/Navbar';
 const BasicLayout = () => {
   return (
     // <div>
-    <div className='bg-watch-bg min-h-screen'> 
+    <div className='bg-watch-bg min-h-screen w-full'> 
       <Navbar />
       <Outlet />
       <Footer />

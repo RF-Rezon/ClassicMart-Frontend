@@ -209,9 +209,9 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="mt-16 flex items-center justify-between">
+          <div className="mt-16 flex md:flex-row flex-col items-center justify-center md:justify-between">
             <div>
-              <p className="text-2xl font-medium text-white font-playfair mb-4">
+              <p className="text-2xl font-medium text-white font-playfair mb-4 text-center md:text-start">
                 Connect with us
               </p>
               <ul data-aos="fade-up" data-aos-duration="700" className="flex justify-start gap-6 py-2">
@@ -324,7 +324,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <p className="text-2xl font-medium text-white font-playfair mb-4">
+              <p className="text-2xl font-medium text-white font-playfair mb-4 text-center md:text-start">
                 Download our app
               </p>
               <ul data-aos="fade-up" data-aos-duration="700" className="flex justify-start gap-6 py-2">
@@ -381,11 +381,11 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <div className="h-[66px] w-full bg-customBlue flex items-center justify-between">
-        <div className="ml-[310px]">
+      <div className="h-20 w-full bg-customBlue flex md:flex-row flex-col items-center justify-between pt-3 md:pt-0 pb-10 md:pb-0">
+        <div className="md:ml-[310px]">
           <p className="text-customGray font-medium text-base font-playfair text-start">All Right Reserved © 2023 | Classicmart</p>
         </div>
-        <div className="flex items-center gap-x-3 mr-[310px]">
+        <div className="flex items-center gap-x-3 md:mr-[310px]">
           <div className="w-full h-full">
             <img
               src="/card-1.svg"

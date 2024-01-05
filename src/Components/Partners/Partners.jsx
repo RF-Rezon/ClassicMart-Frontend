@@ -13,7 +13,7 @@ const Partners = () => {
     }
   }, [controls, inView]);
   return (
-    <div className="bg-[#020c1d]">
+    <div className="bg-[#020c1d] overflow-hidden">
       <div className="py-10 flex flex-col items-center justify-between">
         <div>
           <p className="text-5xl text-center border-b-customGold border-b-4 text-white inline-block mt-10 mb-5 font-playfair">

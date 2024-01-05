@@ -94,7 +94,7 @@ const Product = () => {
   
   return (
     <>
-      <div className="min-h-screen">
+      <div className="min-h-screen pt-40 md:pt-0">
         <div className="h-[265px] w-full relative">
           <div className="w-full h-full absolute opacity-10">
             <img
@@ -146,21 +146,21 @@ const Product = () => {
                   onSubmit={handleSubmit(onSubmit)}
                 >
                   <div className=" w-[50%] mx-auto text-white text-lg font-medium space-y-4">
-                    <div className="flex items-center justify-between">
+                    <div className="flex space-x-6 md:space-x-0 items-center justify-between">
                       <label className="py-2 font-semibold">Price</label>
                       <label className="py-2 font-semibold text-customGold">
                         {singleProduct?.price}
                       </label>
                     </div>
-                    <div className="flex items-center justify-between">
+                    <div className="flex space-x-6 md:space-x-0 items-center justify-between">
                       <label className="py-2 font-semibold">Vendor</label>
                       <label className="py-2">{singleProduct?.vendor}</label>
                     </div>
-                    <div className="flex items-center justify-between">
+                    <div className="flex space-x-6 md:space-x-0 items-center justify-between">
                       <label className="py-2 font-semibold">Type</label>
                       <label className="py-2">{singleProduct?.type}</label>
                     </div>
-                    <div className="flex items-center justify-between mb-2">
+                    <div className="flex space-x-6 md:space-x-0 items-center justify-between mb-2">
                       <label className="py-2 font-semibold">Color</label>
                       <div className="join">
                         {singleProduct?.colors?.map((color, index) => (
@@ -175,7 +175,7 @@ const Product = () => {
                         ))}
                       </div>
                     </div>
-                    <div className="flex items-center justify-between">
+                    <div className="flex space-x-6 md:space-x-0 items-center justify-between">
                       <label className="py-2 font-semibold">Size</label>
                       <div className="join join-vertical md:join-horizontal">
                         {singleProduct?.sizes?.map((size, index) => (
@@ -191,7 +191,7 @@ const Product = () => {
                         ))}
                       </div>
                     </div>
-                    <div className="flex items-center justify-between">
+                    <div className="flex space-x-6 md:space-x-0 items-center justify-between">
                       <label className="py-2 font-semibold">Total</label>
                       <label className="py-2 font-semibold text-green-500">
                         {singleProduct?.price}

@@ -8,13 +8,13 @@ const Allproducts = () => {
   return (
     <div>
       <div className="min-h-screen w-full bg-customDarkBlue">
-        <div className="pt-28 text-center">
+        <div className="pt-52 md:pt-28  text-center">
           <p className="text-5xl text-center border-b-customGold border-b-4 text-white inline-block mt-10 mb-5 font-playfair">
             All Products
           </p>
         </div>
         <div>
-          <div className="grid grid-cols-3 place-items-center gap-6 bg-customDarkBlue py-10 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 place-items-center gap-6 bg-customDarkBlue py-10 mt-10">
             {allProducts?.map((singleWatch) => (
               <div
                 key={singleWatch?._id}

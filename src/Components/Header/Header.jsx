@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom';
 const Header = () => {
   const navigate = useNavigate();
   return (
-    <div className="pt-20">
-      <div className="flex bg-custonBlackBg p-20 items-center justify-center">
+    <div className="pt-52 md:pt-20">
+      <div className="flex flex-col md:flex-row bg-custonBlackBg p-20 items-center justify-center">
         <div className="basis-1/2 flex flex-col items-start justify-center gap-y-4 overflow-hidden">
           <p className="text-white font-medium text-5xl py-2 font-playfair uppercase">
             Classicmart
           </p>
-          <p className="text-customGold font-medium text-xl">
+          <p className="text-customGold font-medium md:text-xl text-2xl">
           Welcome to Classicmart
           </p>
           <p className="py-1 text-customGray font-medium text-lg mb-3">
