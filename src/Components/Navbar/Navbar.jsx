@@ -1,17 +1,18 @@
-import React, { useContext } from "react";
+"use client";
+import { useContext, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/AuthContext";
 
-const Nav = () => {
+const ModernNavbar = () => {
   const { user, LogOut } = useContext(AuthContext);
-
+  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleLogOut = () => {
     Swal.fire({
       title: "Are you sure?",
-      text: `Do you want to log out surely??`,
+      text: `Do you want to log out surely?`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#cca471",
@@ -24,101 +25,128 @@ const Nav = () => {
             Swal.fire({
               icon: "success",
               title: "Success",
-              text: `Logged Out Sucessfully`,
-            }),
-              navigate("/");
+              text: `Logged Out Successfully`,
+            });
+            navigate("/"); // logout successful -> redirect home
           })
-          .catch((error) => {});
+          .catch((error) => {
+            console.error(error);
+          });
       }
     });
   };
+
   return (
-    <div>
-      <header className="fixed top-0 w-full z-50 bg-customBlue border-white py-10 pb-28 border-b-[3px] md:pb-3 md:py-3 border-b-white text-white">
-        <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 h-full">
-          <div className="flex md:flex-row flex-col h-16 items-center justify-between gap-4">
-            <div
-              className="md:flex md:items-center md:gap-12"
+    <div className="shadow-sm bg-[#1e1e1e]">
+      {/* Navbar Start */}
+      <div className="navbar max-w-7xl mx-auto justify-between">
+        <div className="flex-[1/3]">
+          <div className="dropdown">
+            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[999] mt-3 w-52 p-2 shadow"
             >
-              <>
-                <NavLink className="block text-customGold" to="/">
-                  <span className="sr-only">Home</span>
-                  <p className="text-2xl font-semibold font-playfair uppercase">
-                    Classicmart
-                  </p>
-                  <span className="hidden h-1 w-10 rounded bg-white lg:block"></span>
+              <li>
+                <NavLink
+                  to="/allProducts"
+                  className="t-nav-links text-customGold menu menu-horizontal px-1 cursor-pointer"
+                >
+                  Products
                 </NavLink>
-              </>
-            </div>
+              </li>
+              <li>
+                <NavLink
+                  to="/"
+                  className="t-nav-links text-customGold menu menu-horizontal px-1 cursor-pointer"
+                >
+                  News
+                </NavLink>
+              </li>
+            </ul>
+          </div>
 
-            <div>
-              <nav aria-label="Global">
-                <ul className="flex items-center md:gap-8 gap-4 text-sm">
-                  <li  exact activeclassname="active">
-                    <NavLink
-                      className="text-lg font-medium hover:font-semibold font-playfair"
-                      to="/"
-                    >
-                      Home
-                    </NavLink>
-                  </li>
+          <NavLink to="/" className="t-logo cursor-pointer text-customGold">
+            <p className="text-2xl font-semibold uppercase">Classicmart</p>
+            <span className="hidden h-1 w-10 rounded bg-white lg:block"></span>
+          </NavLink>
+        </div>
 
-                  <li activeclassname="active">
-                    <NavLink
-                      className="text-lg font-medium hover:font-semibold font-playfair"
-                      to="/allProducts"
-                    >
-                      Products
-                    </NavLink>
-                  </li>
+        {/* Navbar Center */}
+        <div className="navbar-center hidden lg:flex space-x-5">
+          <NavLink
+            to="/allProducts"
+            className="t-nav-links text-customGold menu menu-horizontal px-1"
+          >
+            Products
+          </NavLink>
 
-                  {user && (
-                    <>
-                      <li>
-                        <Link className="avatar" to="/">
-                          {user?.photoURL && (
-                            <div className="w-10 h-10 rounded-full">
-                              <img src={user.photoURL} />
-                            </div>
-                          )}
-                        </Link>
-                      </li>
-                    </>
-                  )}
-                </ul>
-              </nav>
-            </div>
+          <NavLink
+            to="/wishlist"
+            onClick={(e) => {
+              if (!user) {
+                e.preventDefault(); // prevent redirect
+                Swal.fire({
+                  icon: "info",
+                  title: "Please Log In",
+                  text: "Log in to add and view your favourites in Wishlist ⌚",
+                  confirmButtonColor: "#cca471",
+                });
+              }
+            }}
+            className="t-nav-links text-customGold menu menu-horizontal px-1"
+          >
+            Wishlist
+          </NavLink>
+        </div>
 
-            <div className="flex items-center mt-4 md:mt-0">
-              {!user ? (
-                <div>
-                  <>
-                    <Link
-                      className=" uppercase mx-auto py-2.5 px-5 bg-buttonBg font-medium  font-playfair border-b-[3px] border-b-customGold text-white text-sm hover:bg-customGold transition duration-500"
-                      to="/login"
-                    >
-                      Sign In
-                    </Link>
-                  </>
-                </div>
-              ) : (
-                <div>
-                  <>
-                    <Link
-                      className=" uppercase mx-auto py-2.5 px-5 bg-buttonBg font-medium  font-playfair border-b-[3px] border-b-customGold text-white text-sm hover:bg-customGold transition duration-500"
-                      onClick={handleLogOut}
-                    >
-                      Log Out
-                    </Link>
-                  </>
+        {/* Navbar End / Login-Logout */}
+        <div className="flex items-center mt-4 md:mt-0">
+          {!user ? (
+            <Link
+              className="py-[10px] px-[26px] rounded-[5px] t-2 bg-[#cca471] base-white-text hover:bg-[#ddb27a] cursor-pointer transition-all duration-300"
+              to="/login"
+            >
+              Sign In
+            </Link>
+          ) : (
+            <div className="flex items-center justify-center space-x-5">
+              {user?.photoURL && (
+                <div className="w-10 h-10 rounded-full overflow-hidden">
+                  <img
+                    src={user.photoURL}
+                    alt="avatar"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               )}
+              <button
+                className="py-[10px] px-[26px] rounded-[5px] t-2 bg-[#cca471] base-white-text hover:bg-[#ddb27a] cursor-pointer transition-all duration-300"
+                onClick={handleLogOut}
+              >
+                Log Out
+              </button>
             </div>
-          </div>
+          )}
         </div>
-      </header>
+      </div>
     </div>
   );
 };
 
-export default Nav;
+export default ModernNavbar;

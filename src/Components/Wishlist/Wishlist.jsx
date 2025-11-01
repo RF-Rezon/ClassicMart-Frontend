@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useSWR from "swr";
 import { AuthContext } from "../../Context/AuthContext";
 
@@ -29,9 +29,9 @@ const Wishlist = () => {
 
   return (
     <div>
-      <div className="bg-custonBlackBg min-h-screen w-full">
+      <div className="bg-[#090504] min-h-screen w-full">
         <div className="pt-28 text-center">
-          <p className="text-5xl text-center border-b-customGold border-b-4 text-white inline-block mt-10 mb-5 font-playfair">
+          <p className="text-5xl text-center border-b-customGold border-b-4 text-white inline-block mt-10 mb-5 ">
             My Wishlist
           </p>
         </div>
@@ -42,19 +42,19 @@ const Wishlist = () => {
                 {/* head */}
                 <thead>
                   <tr>
-                    <th className="text-base font-playfair font-semibold text-white">
+                    <th className="text-base  font-semibold text-white">
                       Product
                     </th>
-                    <th className="text-base font-playfair font-semibold text-white">
+                    <th className="text-base  font-semibold text-white">
                       Vendor
                     </th>
-                    <th className="text-base font-playfair font-semibold text-white">
+                    <th className="text-base  font-semibold text-white">
                       Color
                     </th>
-                    <th className="text-base font-playfair font-semibold text-white">
+                    <th className="text-base  font-semibold text-white">
                       Size
                     </th>
-                    <th className="text-base font-playfair font-semibold text-white">
+                    <th className="text-base  font-semibold text-white">
                       Price
                     </th>
                     <th></th>
@@ -97,7 +97,7 @@ const Wishlist = () => {
               </table>
             </div>
             <div className="self-end mr-[345px]">
-                <p className="p-2 py-3 border-b-2 border-b-customGray text-start font-playfair font-medium text-lg">Total: <span className="ml-10 normal-text text-green-500 font-semibold">{totalWishlistPrice.toFixed(2)}</span> </p>
+                <p className="p-2 py-3 border-b-2 border-b-customGray text-start  font-medium text-lg">Total: <span className="ml-10 normal-text text-green-500 font-semibold">{totalWishlistPrice.toFixed(2)}</span> </p>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
-import { useAnimation } from "framer-motion";
-import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
 import Marquee from "react-fast-marquee";
 import { useInView } from "react-intersection-observer";
 
@@ -13,14 +13,34 @@ const Partners = () => {
     }
   }, [controls, inView]);
   return (
-    <div className="bg-[#020c1d] overflow-hidden">
-      <div className="py-10 flex flex-col items-center justify-between">
-        <div>
-          <p className="text-5xl text-center border-b-customGold border-b-4 text-white inline-block mt-10 mb-5 font-playfair">
-            Our Partners
-          </p>
-        </div>
-        <div className="py-24 my-10">
+    <div className="overflow-hidden max-w-[1248px] mx-auto">
+         <div className="w-full pb-14 flex items-center justify-end">
+                  <div className="lg:w-[50%] w-full text-customGold md:px-6 lg:px-0">
+                    <div className="lg:mr-10">
+                      <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        className="flex items-center space-x-1 md:pb-4 pb-1"
+                      >
+                        <span className="text-customGold">&#9679;</span>
+                        <span className="t-1 text-left">Our Partners</span>
+                      </motion.p>
+                      <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        className="t-6 text-left"
+                      >
+                        Designing the Future, Together
+                      </motion.p>
+                    </div>
+                  </div>
+                </div>
+      <div className="py-28 flex flex-col items-center justify-between">
+        <div className="py-24 mb-10">
           <Marquee direction="right" speed={40}>
             <div className="p-4 mr-4 h-24 w-full my-auto cursor-pointer">
               <img className="w-full h-full object-cover" src="/client1_6e709373-d4d6-4fee-905c-f47825f2b2a6.png" />

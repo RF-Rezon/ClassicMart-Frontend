@@ -1,13 +1,13 @@
-{/* <div  data-aos="fade-right" data-aos-duration="700" onClick={()=> navite("/product")}  className="w-full h-full bg-custonBlackBg flex cursor-pointer  flex-col items-center">
+{/* <div  data-aos="fade-right" data-aos-duration="700" onClick={()=> navite("/product")}  className="w-full h-full bg-[#090504] flex cursor-pointer  flex-col items-center">
 <div className="basis-[55%] bg-gray-500 hover:bg-customGray flex items-center justify-center">
     <img className="w-full h-full object-cover" src="/watch-5.png" alt="" />
 </div>
 <div className="basis-[45%] flex flex-col items-center">
-    <p className="text-white font-medium text-2xl font-playfair py-2 pt-6">Analog Numeral</p>
+    <p className="text-white font-medium text-2xl  py-2 pt-6">Analog Numeral</p>
     <p className="text-customGray font-semibold text-xl">$750.00</p>
     <p className=""><ReactStars count={5} size={23} color1={"#cca471"}/></p>
     <p className="text-customGray font-normal text-lg pb-6 italic">Baggit</p>
-     <button className='uppercase w-52 py-3 px-4 bg-buttonBg font-medium font-playfair border-b-[3px] border-b-customGold text-white text-sm'>Add to Cart</button>
+     <button className='uppercase w-52 py-3 px-4 bg-buttonBg font-medium  border-b-[3px] border-b-customGold text-white text-sm'>Add to Cart</button>
 </div>
 </div>
 

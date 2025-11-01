@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
 
@@ -9,7 +9,7 @@ const PopularInStore = () => {
   return (
     <div className="flex flex-col gap-y-5 items-center w-full h-screen mb-28">
       <div>
-        <p className="text-5xl font-playfair border-b-customGold border-b-4 text-white inline-block mt-10 mb-5">
+        <p className="text-5xl  border-b-customGold border-b-4 text-white inline-block mt-10 mb-5">
           Popular In Store
         </p>
       </div>
@@ -23,10 +23,10 @@ const PopularInStore = () => {
           <img className="w-full h-full object-cover" src={singleWatch?.images[0]} alt="" />
       </div>
       <div className="basis-[45%] flex flex-col items-center">
-          <p className="text-white font-medium text-2xl font-playfair py-2 pt-6">{singleWatch?.name}</p>
+          <p className="text-white font-medium text-2xl  py-2 pt-6">{singleWatch?.name}</p>
           <p className="text-customGray font-semibold text-xl">{singleWatch?.price}</p>
           <p className="text-customGray font-normal text-lg pb-6 italic">{singleWatch?.vendor}</p>
-          <Link to={`/singleProduct/${singleWatch._id}`}> <button className='uppercase w-52 py-3 px-4 bg-buttonBg font-medium font-playfair border-b-[3px] border-b-customGold text-white text-sm hover:bg-customGold transition duration-500'>View Detalis</button> </Link> 
+          <Link to={`/singleProduct/${singleWatch._id}`}> <button className='uppercase w-52 py-3 px-4 bg-buttonBg font-medium  border-b-[3px] border-b-customGold text-white text-sm hover:bg-customGold transition duration-500'>View Detalis</button> </Link> 
       </div>
       </div>
     ))}
@@ -44,10 +44,10 @@ const PopularInStore = () => {
           <img className="w-full h-full object-cover" src={singleWatch?.images[0]} alt="" />
       </div>
       <div className="basis-[45%] flex flex-col items-center">
-          <p className="text-white font-medium text-2xl font-playfair py-2 pt-6">{singleWatch?.name}</p>
+          <p className="text-white font-medium text-2xl  py-2 pt-6">{singleWatch?.name}</p>
           <p className="text-customGray font-semibold text-xl">{singleWatch?.price}</p>
           <p className="text-customGray font-normal text-lg pb-6 italic">{singleWatch?.vendor}</p>
-          <Link to={`/singleProduct/${singleWatch._id}`}><button className='uppercase w-52 py-3 px-4 bg-buttonBg font-medium font-playfair border-b-[3px] border-b-customGold text-white text-sm hover:bg-customGold transition duration-500'>View Detalis</button></Link>
+          <Link to={`/singleProduct/${singleWatch._id}`}><button className='uppercase w-52 py-3 px-4 bg-buttonBg font-medium  border-b-[3px] border-b-customGold text-white text-sm hover:bg-customGold transition duration-500'>View Detalis</button></Link>
       </div>
       </div>
     ))}
@@ -60,7 +60,7 @@ const PopularInStore = () => {
 </div>
     </div>
     <div className="w-full flex items-center justify-center mt-10">
-    <Link to={"/allProducts"}> <button data-aos="fade-up" data-aos-duration="700" className='uppercase mt-24 mx-auto py-3 px-4 bg-buttonBg font-medium font-playfair border-b-[3px] border-b-customGold text-white text-md hover:bg-customGold transition duration-500'>View All Products</button> </Link>
+    <Link to={"/allProducts"}> <button data-aos="fade-up" data-aos-duration="700" className='uppercase mt-24 mx-auto py-3 px-4 bg-buttonBg font-medium  border-b-[3px] border-b-customGold text-white text-md hover:bg-customGold transition duration-500'>View All Products</button> </Link>
     </div>
     </div>
   );

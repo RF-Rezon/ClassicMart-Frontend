@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
 
@@ -7,43 +7,43 @@ const Allproducts = () => {
 
   return (
     <div>
-      <div className="min-h-screen w-full bg-customDarkBlue">
-        <div className="pt-52 md:pt-28  text-center">
-          <p className="text-5xl text-center border-b-customGold border-b-4 text-white inline-block mt-10 mb-5 font-playfair">
-            All Products
+      <div className="min-h-screen w-full max-w-[1920px] mx-auto bg-[#090504]">
+        <div className="pt-10 md:pt-16 text-center">
+          <p className="text-5xl text-center text-white inline-block mt-10 mb-5 ">
+            Watches You Love
           </p>
         </div>
-        <div>
-          <div className="grid grid-cols-1 md:grid-cols-3 place-items-center gap-6 bg-customDarkBlue py-10 mt-10">
+        <div className=" flex items-center justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-4 place-items-center py-10">
             {allProducts?.map((singleWatch) => (
               <div
                 key={singleWatch?._id}
                 data-aos="fade-right"
                 data-aos-duration="700"
-                className=" bg-zinc-700 flex flex-row cursor-pointer items-center rounded-sm flex-wrap justify-center w-[80%] mb-10"
+                className="card bg-base-100 shadow-sm m-8 md:w-[90%] w-[70%] backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl hover:scale-[1.02] transition-transform duration-300 md:max-h-[650px] max-h-[500px]"
               >
-                <div className="basis-[55%] rounded-t-sm bg-zinc-900 hover:bg-zinc-400 transition duration-500 flex items-center justify-center">
-                  <img
-                    className="w-full h-full object-cover"
-                    src={singleWatch?.images[0]}
-                    alt=""
-                  />
-                </div>
-                <div className="basis-[45%] flex flex-col items-center flex-1 gap-y-3">
-                  <p className="text-white font-medium text-2xl font-playfair py-2 pt-6">
-                    {singleWatch?.name}
+                <figure>
+                  <img src={singleWatch?.images[0]} alt="img" />
+                </figure>
+                <div className="card-body text-white">
+                  <div className="w-full flex items-center justify-between">
+                    <h2 className="card-title ">{singleWatch?.name}</h2>
+                    <h3 className="card-title"> {singleWatch?.price}</h3>
+                  </div>
+                  <p className="font-semibold">{singleWatch?.vendor}</p>
+                  <p className="line-clamp-3">
+                    A card component has a figure, a body part, and inside body
+                    there are title and actions parts card component has a
+                    figure, a body part, and inside.
                   </p>
-                  <p className="text-customGray font-semibold text-xl">
-                    {singleWatch?.price}
-                  </p>
-                  <p className="text-customGray font-normal text-lg pb-6 italic">
-                    {singleWatch?.vendor}
-                  </p>
-                  <Link to={`/singleProduct/${singleWatch._id}`}>
-                    <button className="uppercase w-56 py-3 px-4 bg-buttonBg font-medium font-playfair border-b-[3px] border-b-customGold text-white text-sm hover:bg-customGold transition duration-500">
-                      View Detalis
-                    </button>
-                  </Link>
+                  <div className="card-actions justify-end mt-5">
+                    <Link
+                      to={`/singleProduct/${singleWatch._id}`}
+                      className="btn btn-primary bg-[#826946] text-white text-sm hover:bg-[#a17f52] transition duration-500 outline-none border-none"
+                    >
+                      View Details
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}

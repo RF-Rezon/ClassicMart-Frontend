@@ -1,0 +1,23 @@
+[
+  {
+    "img": "/images/7.jpg",
+    "alt": "1",
+    "date": "February 5, 2022",
+    "title": "The Art of Minimalist Interiors",
+    "description": "Less is More: Designing Spaces That Speak Simplicity"
+  },
+  {
+    "img": "/images/8.jpg",
+    "alt": "2",
+    "date": "February 22, 2022",
+    "title": "Timeless Furniture Pieces Every Home Needs",
+    "description": "Building a Home That Never Goes Out of Style"
+  },
+  {
+    "img": "/images/9.jpg",
+    "alt": "3",
+    "date": "January 21, 2023",
+    "title": "Psychology in Interior Design",
+    "description": "Shaping Emotions Through Thoughtful Color Choices"
+  }
+]

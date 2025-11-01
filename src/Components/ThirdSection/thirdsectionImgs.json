@@ -1,0 +1,50 @@
+[
+  {
+    "img": "/images/1.jpg",
+    "alt": "1",
+    "width": "284.297",
+    "height": "250.188",
+    "inView": { "x": 0, "y": 0 },
+    "initial": { "x": 300, "y": 100 }
+  },
+  {
+    "img": "/images/2.jpg",
+    "alt": "2",
+    "width": "170.578",
+    "height": "250.188",
+    "inView": { "x": 0, "y": 0 },
+    "initial": { "x": 0, "y": 70 }
+  },
+  {
+    "img": "/images/3.jpg",
+    "alt": "3",
+    "width": "227.453",
+    "height": "312.75",
+    "inView": { "x": 0, "y": 0 },
+    "initial": { "x": -300, "y": 200 }
+  },
+  {
+    "img": "/images/4.jpg",
+    "alt": "4",
+    "width": "189.531",
+    "height": "250.188",
+    "inView": { "x": 0, "y": 0 },
+    "initial": { "x": 350, "y": 0 }
+  },
+  {
+    "img": "/images/5.jpg",
+    "alt": "5",
+    "width": "284.297",
+    "height": "250.188",
+    "inView": { "x": 0, "y": 0 },
+    "initial": { "x": 50, "y": -250 }
+  },
+  {
+    "img": "/images/6.jpg",
+    "alt": "6",
+    "width": "166.797",
+    "height": "275.219",
+    "inView": { "x": 0, "y": 0 },
+    "initial": { "x": -300, "y": 0 }
+  }
+]

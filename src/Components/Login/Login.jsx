@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { FaGoogle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -66,12 +66,12 @@ const Login = () => {
 
 
   return (
-    <div className="bg-custonBlackBg">
+    <div className="bg-[#090504]">
       <div className="overflow-hidden min-h-screen">
         <section className="relative flex flex-wrap lg:h-screen lg:items-center">
           <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24 text-white">
             <div className="mx-auto max-w-lg text-center pb-6">
-              <h1 className="text-2xl font-bold sm:text-3xl font-playfair">
+              <h1 className="text-2xl font-bold sm:text-3xl ">
                 LOGIN
               </h1>
             </div>
@@ -84,7 +84,7 @@ const Login = () => {
                 <div className="relative">
                   <input
                     {...register("email")}
-                    className="w-full rounded-sm border-gray-200 p-4 pe-12 text-base font-medium shadow-sm text-gray-900 "
+                    className="w-full rounded-sm border-gray-200 p-4 pe-12 text-base font-medium shadow-sm text-white "
                     placeholder="Enter email"
                     type="email"
                   />
@@ -96,13 +96,13 @@ const Login = () => {
                   <input
                     type="password"
                     {...register("password")}
-                    className="w-full rounded-sm border-gray-200 p-4 pe-12 text-base font-medium shadow-sm text-gray-900"
+                    className="w-full rounded-sm border-gray-200 p-4 pe-12 text-base font-medium shadow-sm text-white"
                     placeholder="Enter password"
                   />
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <p className="text-sm font-playfair font-medium text-white">
+                <p className="text-sm  font-medium text-white">
                   No account?
                   <a className="underline ml-3" href="/register">
                     Sign up
@@ -110,7 +110,7 @@ const Login = () => {
                 </p>
                 <input
                   type="submit"
-                  className="uppercase w-[200px] mx-auto py-3 my-4 bg-buttonBg font-medium  font-playfair border-b-[3px] border-b-customGold text-white text-sm hover:bg-customGold transition duration-500"
+                  className="uppercase w-[200px] mx-auto py-3 my-4 bg-buttonBg font-medium   border-b-[3px] border-b-customGold text-white text-sm hover:bg-customGold transition duration-500"
                   value="Login"
                 />
               </div>

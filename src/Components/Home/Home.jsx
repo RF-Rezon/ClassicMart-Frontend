@@ -1,8 +1,11 @@
-import React from "react";
-
+import About from "../About/About";
+import CarouselSection from "../carouselSection/carouselSection";
+import ConnectSection from "../connectSection/connectSection";
+import ExpertiseSection from "../expertiseSection/expertiseSection";
 import Header from "../Header/Header";
+import News from "../news/news";
 import Partners from "../Partners/Partners";
-import SecondSection from "../SecondSection/SecondSection";
+import ThirdSection from "../ThirdSection/ThirdSection";
 
 const Home = () => {
   let x = import.meta.env.VITE_LOCAL_BACKEND;
@@ -11,7 +14,12 @@ const Home = () => {
     <>
       <div className="min-h-screen">
         <Header />
-        <SecondSection />
+        <About />
+        <ThirdSection />
+        <CarouselSection />
+        <ExpertiseSection />
+        <ConnectSection />
+        <News />
         <Partners />
       </div>
     </>

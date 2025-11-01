@@ -1,19 +1,18 @@
-import React from "react";
 
 const ErrorPage = () => {
   return (
     <div>
-      <div className="grid h-screen place-content-center bg-white px-4">
+      <div className="grid h-screen place-content-center bg-[#2b2b2b] px-4">
         <div className="text-center">
-          <h1 className="text-9xl font-black text-gray-200">404</h1>
-          <p className="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h1 className="text-9xl font-black text-white">404</h1>
+          <p className="text-2xl font-bold tracking-tight text-white sm:text-4xl">
             Uh-oh!
           </p>
-          <p className="mt-4 text-customGray">We can't find that page.</p>
+          <p className="mt-4 text-white font-semibold">We can't find this page.</p>
 
           <a
             href="/"
-            className="mt-6 inline-block rounded bg-customBlue px-5 py-3 text-sm font-medium text-white hover:bg-customGold focus:outline-none focus:ring"
+            className="mt-6 inline-block rounded bg-white text-[#2c2418] px-5 py-3 text-sm font-medium hover:bg-customGold focus:outline-none focus:ring"
           >
             Go Back Home
           </a>

@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -67,12 +67,12 @@ const Register = () => {
       });
   };
   return (
-    <div className="bg-custonBlackBg">
+    <div className="bg-[#090504]">
       <div className="overflow-hidden min-h-screen">
         <section className="relative flex flex-wrap lg:h-screen lg:items-center">
           <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
             <div className="mx-auto max-w-lg text-center pb-6">
-              <h1 className="text-2xl font-bold sm:text-3xl text-white font-playfair">
+              <h1 className="text-2xl font-bold sm:text-3xl text-white ">
                 REGISTER
               </h1>
             </div>
@@ -87,7 +87,7 @@ const Register = () => {
                     {...register("name")}
                     type="text"
                     required
-                    className="w-full rounded-sm border-gray-200 text-gray-900 p-4 pe-12 text-base font-medium shadow-sm"
+                    className="w-full rounded-sm border-gray-200 text-white p-4 pe-12 text-base font-medium shadow-sm"
                     placeholder="enter your name"
                   />
                   {errors?.name && (
@@ -107,7 +107,7 @@ const Register = () => {
                     {...register("email")}
                     type="email"
                     required
-                    className="w-full rounded-sm border-gray-200 text-gray-900 p-4 pe-12 text-base font-medium shadow-sm"
+                    className="w-full rounded-sm border-gray-200 text-white p-4 pe-12 text-base font-medium shadow-sm"
                     placeholder="Enter email"
                   />
                   {errors?.email && (
@@ -129,7 +129,7 @@ const Register = () => {
                     })}
                     type="password"
                     required
-                    className="w-full rounded-sm border-gray-200 text-gray-900 p-4 pe-12 text-base font-medium shadow-sm"
+                    className="w-full rounded-sm border-gray-200 text-white p-4 pe-12 text-base font-medium shadow-sm"
                     placeholder="Enter password"
                   />
                   {errors?.password && (
@@ -149,7 +149,7 @@ const Register = () => {
                     type="password"
                     required
                     {...register("confirm_password")}
-                    className="w-full rounded-sm border-gray-200 text-gray-900 p-4 pe-12 text-base font-medium shadow-sm"
+                    className="w-full rounded-sm border-gray-200 text-white p-4 pe-12 text-base font-medium shadow-sm"
                     placeholder="Type password again"
                   />
                   {errors?.confirm_password && (
@@ -168,7 +168,7 @@ const Register = () => {
                     {...register("photoURL")}
                     type="url"
                     required
-                    className="w-full rounded-sm border-gray-200 text-gray-900 p-4 pe-12 text-base font-medium shadow-sm"
+                    className="w-full rounded-sm border-gray-200 text-white p-4 pe-12 text-base font-medium shadow-sm"
                     placeholder="Enter photo url"
                   />
                   {errors?.photoURL && (
@@ -180,7 +180,7 @@ const Register = () => {
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <p className="text-sm font-medium text-white font-playfair">
+                <p className="text-sm font-medium text-white ">
                   Have Account?
                   <a className="underline ml-3" href="/login">
                     Sign In
@@ -188,7 +188,7 @@ const Register = () => {
                 </p>
                 <input
                     type="submit"
-                    className="uppercase w-[200px] mx-auto py-3 my-4 bg-buttonBg font-medium  font-playfair border-b-[3px] border-b-customGold text-white text-sm hover:bg-customGold transition duration-500"
+                    className="uppercase w-[200px] mx-auto py-3 my-4 bg-buttonBg font-medium   border-b-[3px] border-b-customGold text-white text-sm hover:bg-customGold transition duration-500"
                     value="Register"
                   />
               </div>

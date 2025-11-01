@@ -13,9 +13,9 @@ export default {
         custonBlackBg: "#000101"
       },
       fontFamily: {
-        playfair: ['Playfair Display'],
+        archivo: ['Archivo', 'ui-sans-serif', 'system-ui'],
       },
     },
   },
-plugins: [require("daisyui")],
+plugins: [require("daisyui", "@tailwindcss/line-clamp")],
 }
