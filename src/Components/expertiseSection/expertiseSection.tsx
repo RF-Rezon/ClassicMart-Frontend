@@ -8,7 +8,11 @@ const ExpertiseSection = () => {
 
   const [activeImage, setActiveImage] = useState("/images/square/2.jpg");
   const services = [
-    { id: "01", title: "Custom Furniture Design", img: "/images/square/2.jpg" },
+    {
+      id: "01",
+      title: "Customwrist watch Design",
+      img: "/images/square/2.jpg",
+    },
     {
       id: "02",
       title: "Room Decoration & Styling",

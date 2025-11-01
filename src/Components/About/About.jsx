@@ -48,7 +48,7 @@ const About = () => {
             className="t-2-light md:pb-5 pb-3 text-left"
           >
             At Classicmart, we believe that every space has a story to tell. As a
-            premier furniture design and room decorating agency.
+            premierwrist watch design and room decorating agency.
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
