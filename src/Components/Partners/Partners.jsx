@@ -24,8 +24,8 @@ const Partners = () => {
                         viewport={{ once: true, amount: 0.2 }}
                         className="flex items-center space-x-1 md:pb-4 pb-1"
                       >
-                        <span className="text-customGold">&#9679;</span>
-                        <span className="t-1 text-left">Our Partners</span>
+                        <span className="text-customGray">&#9679;</span>
+                        <span className="t-1 text-left text-customGray">Our Partners</span>
                       </motion.p>
                       <motion.p
                         initial={{ opacity: 0, y: 20 }}

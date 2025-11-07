@@ -21,8 +21,8 @@ const News = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 className="flex items-center space-x-1 md:pb-4 pb-1"
               >
-                <span className="text-customGold">&#9679;</span>
-                <span className="t-1 text-left">News</span>
+                <span className="text-customGray">&#9679;</span>
+                <span className="t-1 text-left text-customGray">News</span>
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -40,7 +40,7 @@ const News = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true, amount: 0.2 }}
-                className="btn-2 t-2 bg-customGold base-white-text"
+                className="btn-2 t-2 border-2 bg-customGold base-white-text hover:bg-transparent hover:border-red-600 hover:text-customGold"
               >
                 View All News
               </motion.button>

@@ -13,11 +13,11 @@ const News_cards = () => {
           </div>
           <div className="text-customGold space-y-1.5 md:space-y-2.5 w-full md:w-[80%]">
             <p className="flex items-center space-x-1">
-              <span className="text-customGold">&#9679;</span>
-              <span className="t-1 text-left">{i.date}</span>
+              <span className="text-customGray">&#9679;</span>
+              <span className="t-1 text-left text-customGray">{i.date}</span>
             </p>
             <p className="t-3">{i.title}</p>
-            <p className="t-1">{i.description}</p>
+            <p className="t-1 text-customGray">{i.description}</p>
           </div>
         </div>
       ))}

@@ -51,8 +51,10 @@ const ExpertiseSection = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 className="flex items-center space-x-1 md:pb-4 pb-1"
               >
-                <span className="text-customGold">&#9679;</span>
-                <span className="t-1 text-left">Our Expertise</span>
+                <span className="text-customGray">&#9679;</span>
+                <span className="t-1 text-left text-customGray">
+                  Our Expertise
+                </span>
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -94,7 +96,7 @@ const ExpertiseSection = () => {
                 {services.map((i) => (
                   <motion.li
                     whileHover={{
-                      backgroundColor: "#cca471",
+                      backgroundColor: "#c40d2e",
                       color: "#ffff",
                       paddingLeft: "16px",
                     }}
@@ -103,7 +105,7 @@ const ExpertiseSection = () => {
                       ease: "easeInOut",
                     }}
                     key={i.id}
-                    className="py-[9px] border-b-[1.5px] border-b-[#cca471] flex cursor-pointer bg-fill-hover"
+                    className="py-[9px] border-b-[1.5px] border-b-[#555555] flex cursor-pointer bg-fill-hover"
                     onMouseEnter={() => setActiveImage(i.img)}
                   >
                     <span className="t-1 mr-4.5">{i.id}</span>

@@ -1,13 +1,26 @@
 "use client";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/AuthContext";
 
 const ModernNavbar = () => {
   const { user, LogOut } = useContext(AuthContext);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
   const navigate = useNavigate();
+
+  // ✅ scroll handle
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleLogOut = () => {
     Swal.fire({
@@ -27,7 +40,7 @@ const ModernNavbar = () => {
               title: "Success",
               text: `Logged Out Successfully`,
             });
-            navigate("/"); // logout successful -> redirect home
+            navigate("/");
           })
           .catch((error) => {
             console.error(error);
@@ -37,9 +50,15 @@ const ModernNavbar = () => {
   };
 
   return (
-    <div className="shadow-sm bg-[#1e1e1e]">
-      {/* Navbar Start */}
+    <div
+      className={`w-full z-[9999] transition-all duration-300 ${
+        isSticky
+          ? "fixed top-0 left-0 bg-white shadow-md"
+          : "relative bg-[#ffffff] shadow-lg"
+      }`}
+    >
       <div className="navbar max-w-7xl mx-auto justify-between">
+        {/* Left */}
         <div className="flex-[1/3]">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -63,63 +82,63 @@ const ModernNavbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[999] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <NavLink
-                  to="/allProducts"
-                  className="t-nav-links text-customGold menu menu-horizontal px-1 cursor-pointer"
-                >
-                  Products
-                </NavLink>
+                <NavLink to="/" className="text-customGray">Home</NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/"
-                  className="t-nav-links text-customGold menu menu-horizontal px-1 cursor-pointer"
-                >
-                  News
-                </NavLink>
+                <NavLink to="/allProducts" className="text-customGray">Products</NavLink>
+              </li>
+              <li>
+                <NavLink to="/" className="text-customGray">News</NavLink>
               </li>
             </ul>
           </div>
 
-          <NavLink to="/" className="t-logo cursor-pointer text-customGold">
-            <p className="text-2xl font-semibold uppercase">Classicmart</p>
-            <span className="hidden h-1 w-10 rounded bg-white lg:block"></span>
-          </NavLink>
+          <Link
+            to="/"
+            className="text-[18px] md:text-[26px] font-[700] tracking-[-0.6px] text-white cursor-pointer bg-[#c40d2e] p-2 px-3 uppercase"
+          >
+            Classicmart
+          </Link>
         </div>
 
-        {/* Navbar Center */}
-        <div className="navbar-center hidden lg:flex space-x-5">
-          <NavLink
-            to="/allProducts"
-            className="t-nav-links text-customGold menu menu-horizontal px-1"
-          >
-            Products
+        {/* Center */}
+        <div className="navbar-center hidden lg:flex space-x-8">
+          <NavLink to="/" className="text-customGray cursor-pointer">
+            <span className="inline-block relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customGold after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+              Home
+            </span>
           </NavLink>
-
+          <NavLink to="/allProducts" className="text-customGray cursor-pointer">
+            <span className="inline-block relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customGold after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+              Products
+            </span>
+          </NavLink>
           <NavLink
             to="/wishlist"
             onClick={(e) => {
               if (!user) {
-                e.preventDefault(); // prevent redirect
+                e.preventDefault();
                 Swal.fire({
                   icon: "info",
                   title: "Please Log In",
                   text: "Log in to add and view your favourites in Wishlist ⌚",
-                  confirmButtonColor: "#cca471",
+                  confirmButtonColor: "#c40d2e",
                 });
               }
             }}
-            className="t-nav-links text-customGold menu menu-horizontal px-1"
+            className="text-customGray cursor-pointer"
           >
-            Wishlist
+            <span className="inline-block relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customGold after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+              Wishlist
+            </span>
           </NavLink>
         </div>
 
-        {/* Navbar End / Login-Logout */}
+        {/* Right */}
         <div className="flex items-center mt-4 md:mt-0">
           {!user ? (
             <Link
-              className="py-[10px] px-[26px] rounded-[5px] t-2 bg-[#cca471] base-white-text hover:bg-[#ddb27a] cursor-pointer transition-all duration-300"
+              className="py-[10px] px-[26px] rounded-[5px] border-2 border-customGold hover:bg-customGold cursor-pointer transition-all duration-300 text-customGold hover:text-white"
               to="/login"
             >
               Sign In
@@ -136,7 +155,7 @@ const ModernNavbar = () => {
                 </div>
               )}
               <button
-                className="py-[10px] px-[26px] rounded-[5px] t-2 bg-[#cca471] base-white-text hover:bg-[#ddb27a] cursor-pointer transition-all duration-300"
+                className="py-[10px] px-[26px] rounded-[5px] border-2 border-customGold hover:bg-customGold cursor-pointer transition-all duration-300  text-customGold hover:text-white"
                 onClick={handleLogOut}
               >
                 Log Out

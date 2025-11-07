@@ -1,11 +1,11 @@
 import axios from "axios";
+import { motion } from "framer-motion";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { FaGoogle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/AuthContext";
-
 const Login = () => {
   const navigate = useNavigate();
   const { normalLogin, LoginWithGoogle, webUrl , setLoading} = useContext(AuthContext);
@@ -71,9 +71,23 @@ const Login = () => {
         <section className="relative flex flex-wrap lg:h-screen lg:items-center">
           <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24 text-white">
             <div className="mx-auto max-w-lg text-center pb-6">
-              <h1 className="text-2xl font-bold sm:text-3xl ">
-                LOGIN
-              </h1>
+               <span className="relative inline-block text-2xl font-bold sm:text-3xl px-3 py-2">
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.15, delay: 0.5, ease: "easeIn" }}
+                  className="relative z-10"
+                >
+                  LOGIN
+                </motion.span>
+                <motion.span
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.15, delay: 0.5, ease: "easeIn" }}
+                  className="absolute inset-0 bg-customGold origin-left"
+                  style={{ zIndex: 0 }}
+                />
+              </span>
             </div>
             <form
               onSubmit={handleSubmit(onSubmit)}
@@ -102,9 +116,9 @@ const Login = () => {
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <p className="text-sm  font-medium text-white">
+                <p className="text-sm  font-medium text-customGray">
                   No account?
-                  <a className="underline ml-3" href="/register">
+                  <a className="underline ml-3 text-customGold font-semibold" href="/register">
                     Sign up
                   </a>
                 </p>
@@ -117,14 +131,14 @@ const Login = () => {
             </form>
             <div
               onClick={handleGoogleLogin}
-              className="cursor-pointer bg-white hover:bg-customGold w-3/5 p-5 flex items-center justify-center my-7 mx-auto mt-20 transition duration-700"
+              className="cursor-pointer bg-customGray hover:bg-[#979696] w-3/5 p-5 flex items-center justify-center my-7 mx-auto mt-20 transition duration-700"
             >
               <div className="mx-auto">
                 <FaGoogle fill="black" />
               </div>
             </div>
           </div>
-          <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
+          <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2 hidden lg:block">
             <img
               alt="Welcome"
               src="https://i.ibb.co/VS8FfnY/pexels-rene-asmussen-2919052.jpg"

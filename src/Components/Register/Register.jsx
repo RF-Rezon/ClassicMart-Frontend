@@ -1,10 +1,10 @@
 import axios from "axios";
+import { motion } from "framer-motion";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/AuthContext";
-
 // const token = localStorage.getItem("access-token");
 const Register = () => {
   const navigate = useNavigate();
@@ -72,9 +72,23 @@ const Register = () => {
         <section className="relative flex flex-wrap lg:h-screen lg:items-center">
           <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
             <div className="mx-auto max-w-lg text-center pb-6">
-              <h1 className="text-2xl font-bold sm:text-3xl text-white ">
-                REGISTER
-              </h1>
+               <span className="relative inline-block text-2xl font-bold sm:text-3xl px-3 py-2 text-white">
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.15, delay: 0.5, ease: "easeIn" }}
+                  className="relative z-10"
+                >
+                  REGISTER
+                </motion.span>
+                <motion.span
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.15, delay: 0.5, ease: "easeIn" }}
+                  className="absolute inset-0 bg-customGold origin-left"
+                  style={{ zIndex: 0 }}
+                />
+              </span>
             </div>
             <form
               onSubmit={handleSubmit(onSubmit)}
@@ -180,9 +194,9 @@ const Register = () => {
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <p className="text-sm font-medium text-white ">
+                <p className="text-sm font-medium text-customGray">
                   Have Account?
-                  <a className="underline ml-3" href="/login">
+                  <a className="underline ml-3 text-customGold font-semibold" href="/login">
                     Sign In
                   </a>
                 </p>

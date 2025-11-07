@@ -6,8 +6,8 @@ export default {
       colors: {
         customBlue: "#0f1c55",
         customBlack: "#010001",
-        customGray: "#dbdbd9",
-        customGold: "#cca471",
+        customGray: "#555555",
+        customGold: "#c40d2e",
         customDarkBlue: "#020c1d",
         buttonBg: "#353535",
         custonBlackBg: "#000101"

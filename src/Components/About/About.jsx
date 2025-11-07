@@ -26,8 +26,8 @@ const About = () => {
             viewport={{ once: true, amount: 0.2 }}
             className="flex items-center space-x-1 md:pb-4 pb-1"
           >
-            <span className="text-customGold">&#9679;</span>
-            <span className="t-1 text-left">About us</span>
+            <span className="text-customGray">&#9679;</span>
+            <span className="t-1 text-left text-customGray">About us</span>
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -45,7 +45,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true, amount: 0.2 }}
-            className="t-2-light md:pb-5 pb-3 text-left"
+            className="t-2-light md:pb-5 pb-3 text-left text-customGray"
           >
             At Classicmart, we believe that every space has a story to tell. As a
             premierwrist watch design and room decorating agency.
@@ -55,7 +55,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true, amount: 0.2 }}
-            className="t-2-light md:pb-6 pb-3 text-left"
+            className="t-2-light md:pb-6 pb-3 text-left text-customGray"
           >
             Our expert team blends timeless craftsmanship with innovative
             designs, ensuring each piece and layout reflects your unique taste
@@ -66,7 +66,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true, amount: 0.2 }}
-            className="py-[14px] px-[26px] rounded-[5px] t-2 bg-[#cca471] base-white-text hover:bg-[#ddb27a] cursor-pointer transition-all duration-300"
+            className="py-[14px] px-[26px] rounded-[5px] t-2 text-customGold border-2 border-customGold  hover:bg-customGold hover:text-white cursor-pointer transition-all duration-300 mt-10"
           >
             More About us
           </motion.button>

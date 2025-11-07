@@ -14,7 +14,7 @@ const CarouselSection = () => {
       {carouselsection.map((i: CarouselItem, index: number) => (
         <div
           key={index}
-          className="relative min-h-screen w-full flex items-center justify-center bg-center bg-cover bg-no-repeat sticky top-0"
+          className="min-h-screen w-full flex items-center justify-center bg-center bg-cover bg-no-repeat sticky top-0"
           style={{ backgroundImage: `url('${i.img}')` }}
         >
           {/* ⬇️ Overlay layer */}
@@ -31,7 +31,7 @@ const CarouselSection = () => {
             <p className="text-center t-2 pb-8">{i.description}</p>
 
             <div className="flex justify-center mx-2">
-              <button className="py-[14px] px-[26px] rounded-[5px] t-2 bg-[#cca471] hover:bg-[#ddb27a] cursor-pointer transition-all duration-300 opacity-95 shadow-md">
+              <button className="py-[14px] px-[26px] rounded-[5px] t-2 bg-customGold hover:bg-[#d22e4c] cursor-pointer transition-all duration-300 opacity-95 shadow-md">
                 View Project
               </button>
             </div>

@@ -77,9 +77,26 @@ const ThirdSection = () => {
           initial={{ opacity: 0, y: 50 }}
           className="absolute flex-center h-full"
         >
-          <p className="t-5-special text-customGold text-center md:w-[45%] md:pb-12 md:-mt-12">
-            Transforming spaces with style, through Classicmart&apos;s exquisite
-            design expertise.
+          <p className="t-5-special text-customGray text-center md:w-[45%] md:pb-12 md:-mt-12">
+            Transforming spaces with style, through
+            <span className="relative inline-block mx-4">
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 1.3, ease: "easeIn" }}
+                className="relative z-10 px-2 text-white"
+              >
+                Classicmart&apos;s
+              </motion.span>
+              <motion.span
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 1.3, ease: "easeIn" }}
+                className="absolute inset-0 bg-customGold origin-left"
+                style={{ zIndex: 0 }}
+              />
+            </span>
+            exquisite design expertise.
           </p>
         </motion.div>
 

@@ -1,6 +1,5 @@
 import About from "../About/About";
 import CarouselSection from "../carouselSection/carouselSection";
-import ConnectSection from "../connectSection/connectSection";
 import ExpertiseSection from "../expertiseSection/expertiseSection";
 import Header from "../Header/Header";
 import News from "../news/news";
@@ -18,7 +17,6 @@ const Home = () => {
         <ThirdSection />
         <CarouselSection />
         <ExpertiseSection />
-        <ConnectSection />
         <News />
         <Partners />
       </div>
