@@ -13,9 +13,9 @@ const Partners = () => {
     }
   }, [controls, inView]);
   return (
-    <div className="overflow-hidden max-w-[1248px] mx-auto">
+    <div className="overflow-hidden max-w-[1248px] mx-auto px-4">
          <div className="w-full pb-14 flex items-center justify-end">
-                  <div className="lg:w-[50%] w-full text-customGold md:px-6 lg:px-0">
+                  <div className="lg:w-[50%] w-full text-customRed md:px-6 lg:px-0">
                     <div className="lg:mr-10">
                       <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,7 @@ const Partners = () => {
                     </div>
                   </div>
                 </div>
-      <div className="py-28 flex flex-col items-center justify-between">
+      <div className="md:py-28 flex flex-col items-center justify-between">
         <div className="py-24 mb-10">
           <Marquee direction="right" speed={40}>
             <div className="p-4 mr-4 h-24 w-full my-auto cursor-pointer">

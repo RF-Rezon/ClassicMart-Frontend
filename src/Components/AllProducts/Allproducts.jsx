@@ -23,7 +23,7 @@ const Allproducts = () => {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 0.15, delay: 0.5, ease: "easeIn" }}
-                  className="absolute inset-0 bg-customGold origin-left"
+                  className="absolute inset-0 bg-customRed origin-left"
                   style={{ zIndex: 0 }}
                 />
               </span>
@@ -35,7 +35,7 @@ const Allproducts = () => {
                 key={singleWatch?._id}
                 data-aos="fade-right"
                 data-aos-duration="700"
-                className="card shadow-sm m-8 md:w-[90%] w-[70%] backdrop-blur-xl bg-[#f9f9f9] border border-white/20 rounded-xl hover:scale-[1.02] transition-transform duration-300"
+                className="card shadow-sm m-8 md:w-[90%] w-[70%] backdrop-blur-xl bg-[#f9f9f9] border-2 border-[#b6b5b5] rounded-md hover:scale-[1.02] transition-transform duration-300"
               >
                 <figure className="w-full aspect-square overflow-hidden rounded-t-xl">
                   <img 
@@ -49,7 +49,7 @@ const Allproducts = () => {
                     <h2 className="card-title">{singleWatch?.name}</h2>
                     <h3 className="card-title"> {singleWatch?.price}</h3>
                   </div>
-                  <p className="font-semibold text-customGold">{singleWatch?.vendor}</p>
+                  <p className="font-semibold text-customRed">{singleWatch?.vendor}</p>
                   <p className="line-clamp-3">
                     A card component has a figure, a body part, and inside body
                     there are title and actions parts card component has a
@@ -58,7 +58,7 @@ const Allproducts = () => {
                   <div className="card-actions justify-end mt-5">
                     <Link
                       to={`/singleProduct/${singleWatch._id}`}
-                      className="btn btn-primary bg-customGold text-white text-sm hover:bg-[#a17f52] transition duration-500 outline-none border-none"
+                      className="btn btn-primary bg-customRed text-white text-sm hover:bg-[#ea0f37] transition duration-500 outline-none border-none"
                     >
                       View Details
                     </Link>

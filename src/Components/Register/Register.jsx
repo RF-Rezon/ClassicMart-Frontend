@@ -85,7 +85,7 @@ const Register = () => {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 0.15, delay: 0.5, ease: "easeIn" }}
-                  className="absolute inset-0 bg-customGold origin-left"
+                  className="absolute inset-0 bg-customRed origin-left"
                   style={{ zIndex: 0 }}
                 />
               </span>
@@ -196,13 +196,13 @@ const Register = () => {
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-customGray">
                   Have Account?
-                  <a className="underline ml-3 text-customGold font-semibold" href="/login">
+                  <a className="underline ml-3 text-customRed font-semibold" href="/login">
                     Sign In
                   </a>
                 </p>
                 <input
                     type="submit"
-                    className="uppercase w-[200px] mx-auto py-3 my-4 bg-buttonBg font-medium   border-b-[3px] border-b-customGold text-white text-sm hover:bg-customGold transition duration-500"
+                    className="uppercase w-[200px] mx-auto py-3 my-4 bg-buttonBg font-medium   border-b-[3px] border-b-customRed text-white text-sm hover:bg-customRed transition duration-500"
                     value="Register"
                   />
               </div>

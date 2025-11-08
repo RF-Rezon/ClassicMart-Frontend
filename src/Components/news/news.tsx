@@ -13,7 +13,7 @@ const News = () => {
       >
         <div className="w-full">
           <div className="flex flex-col md:flex-row items-center justify-between mb-8 md:mb-12">
-            <div className="text-customGold self-start">
+            <div className="text-customRed self-start">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ const News = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true, amount: 0.2 }}
-                className="btn-2 t-2 border-2 bg-customGold base-white-text hover:bg-transparent hover:border-red-600 hover:text-customGold"
+                className="btn-2 t-2 border-2 bg-customRed base-white-text hover:bg-transparent hover:border-red-600 hover:text-customRed"
               >
                 View All News
               </motion.button>

@@ -39,10 +39,10 @@ const ExpertiseSection = () => {
     <>
       <div
         ref={sectionRef}
-        className="mb-[86px] lg:mb- lg:min-h-screen mx-auto max-w-[1284px] my-[100px] md:my-[140px] lg:my-[186px] md:space-x-10 px-4 relative space-x-6"
+        className="mb-[86px] lg:min-h-screen mx-auto max-w-[1284px] my-[100px] md:my-[140px] lg:my-[186px] md:space-x-10 px-4 relative space-x-6"
       >
         <div className="w-full pb-14 flex items-center justify-end">
-          <div className="lg:w-[50%] w-full text-customGold md:px-6 lg:px-0">
+          <div className="lg:w-[50%] w-full text-customRed md:px-6 lg:px-0">
             <div className="lg:mr-10">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -91,8 +91,8 @@ const ExpertiseSection = () => {
             </div>
           </div>
           <div className="flex-1/2">
-            <div className="w-full text-customGold lg:space-y-[86px] space-y-[20px] md:px-6 lg:px-0">
-              <ul className="t-4 text-customGold">
+            <div className="w-full text-customRed lg:space-y-[86px] space-y-[20px] md:px-6 lg:px-0">
+              <ul className="t-4 text-customRed">
                 {services.map((i) => (
                   <motion.li
                     whileHover={{

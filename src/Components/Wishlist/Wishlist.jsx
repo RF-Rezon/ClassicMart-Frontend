@@ -1,106 +1,137 @@
+import { motion } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
 import useSWR from "swr";
 import { AuthContext } from "../../Context/AuthContext";
 
 const Wishlist = () => {
-
-  const { webUrl, setLoading, user } = useContext(AuthContext);
+  const { webUrl, user } = useContext(AuthContext);
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
   const { data, error, isLoading } = useSWR(`${webUrl}/wishlist`, fetcher);
   const [items, setItems] = useState([]);
 
-
   useEffect(() => {
-    if (error) {
-      console.warn("Failed to load:", error);
-    }
-    if (isLoading) {
-    }
-
-    if (data) {
-      setItems(data);
-    }
+    if (data) setItems(data);
   }, [data, error, isLoading]);
 
-
-  const currentUserCart = items?.filter((item) => item?.userMail === user?.email);
-  const totalWishlistPrice = currentUserCart?.reduce((acc, cart) => acc + cart.total, 0);
+  const currentUserCart = items?.filter(
+    (item) => item?.userMail === user?.email
+  );
+  const totalWishlistPrice = currentUserCart?.reduce(
+    (acc, cart) => acc + cart.total,
+    0
+  );
 
   return (
-    <div>
-      <div className="bg-[#090504] min-h-screen w-full">
-        <div className="pt-28 text-center">
-          <p className="text-5xl text-center border-b-customGold border-b-4 text-white inline-block mt-10 mb-5 ">
-            My Wishlist
-          </p>
-        </div>
-        <div className="">
-          <div className="py-10 my-10 text-customGray flex items-center justify-center flex-col w-full">
-            <div className="overflow-x-auto w-5/6">
-              <table className="table">
-                {/* head */}
-                <thead>
-                  <tr>
-                    <th className="text-base  font-semibold text-white">
-                      Product
-                    </th>
-                    <th className="text-base  font-semibold text-white">
-                      Vendor
-                    </th>
-                    <th className="text-base  font-semibold text-white">
-                      Color
-                    </th>
-                    <th className="text-base  font-semibold text-white">
-                      Size
-                    </th>
-                    <th className="text-base  font-semibold text-white">
-                      Price
-                    </th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {/* row 1 */}
-                 {currentUserCart?.map(cart => (
-                    <tr key={cart?._id}>
-                    <td>
+    <div className="bg-white min-h-screen w-full flex flex-col items-center px-4 sm:px-6 md:px-10">
+      {/* ✅ Header */}
+      <div className="pt-16 text-center w-full">
+        <span className="relative inline-block text-3xl sm:text-4xl md:text-5xl text-center text-white mt-10 mb-5 px-3 py-2">
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.15, delay: 0.5, ease: "easeIn" }}
+            className="relative z-10"
+          >
+            Your Wishlist
+          </motion.span>
+          <motion.span
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.15, delay: 0.5, ease: "easeIn" }}
+            className="absolute inset-0 bg-customRed origin-left"
+            style={{ zIndex: 0 }}
+          />
+        </span>
+      </div>
+
+      {/* ✅ Table Section */}
+      <div className="w-full flex justify-center py-10 my-10">
+        <div className="w-full md:w-5/6 overflow-x-auto shadow-sm border border-[#ddd]">
+          <table className="table w-full border-separate border-spacing-0">
+            {/* Table Head */}
+            <thead className="bg-[#f6f6f6] border-b-2 border-[#555555]">
+              <tr>
+                <th className="text-sm sm:text-base font-semibold text-customRed text-left p-3 pl-6">
+                  Product
+                </th>
+                <th className="text-sm sm:text-base font-semibold text-customRed text-left p-3">
+                  Vendor
+                </th>
+                <th className="text-sm sm:text-base font-semibold text-customRed text-left p-3">
+                  Color
+                </th>
+                <th className="text-sm sm:text-base font-semibold text-customRed text-left p-3">
+                  Size
+                </th>
+                <th className="text-sm sm:text-base font-semibold text-customRed text-left p-3">
+                  Price
+                </th>
+              </tr>
+            </thead>
+
+            {/* Table Body */}
+            <tbody>
+              {currentUserCart?.length > 0 ? (
+                currentUserCart.map((cart) => (
+                  <tr
+                    key={cart?._id}
+                    className="border-t border-b border-[#555555] hover:bg-[#f9f9f9] transition-colors"
+                  >
+                    <td className="p-3 pl-6">
                       <div className="flex items-center gap-3">
-                        <div className="avatar">
-                          <div className="mask mask-squircle w-12 h-12">
-                            <img
-                              src={cart?.image}
-                              alt="product image"
-                            />
-                          </div>
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 rounded-md overflow-hidden border border-[#ddd]">
+                          <img
+                            src={cart?.image}
+                            alt={cart?.name}
+                            className="w-full h-full object-cover"
+                          />
                         </div>
                         <div>
-                          <div className="text-base font-semibold">
-                           {cart?.name}
-                          </div>
+                          <p className="text-sm sm:text-base font-semibold text-black">
+                            {cart?.name}
+                          </p>
                         </div>
                       </div>
                     </td>
-                    <td>
-                      <span className="badge badge-neutral border-2 border-white p-3 badge-md font-medium text-white">
-                      {cart?.vendor}
+                    <td className="p-3">
+                      <span className="badge bg-customRed border-2 border-white p-3 badge-md font-medium text-white">
+                        {cart?.vendor}
                       </span>
                     </td>
-                    <td className="text-sm font-semibold ">{cart?.color}</td>
-                    <td className="text-sm font-semibold ">{cart?.size}</td>
-                    <td className="text-sm font-semibold text-green-500">
+                    <td className="p-3 text-sm sm:text-base font-semibold text-black">
+                      {cart?.color}
+                    </td>
+                    <td className="p-3 text-sm sm:text-base font-semibold text-black">
+                      {cart?.size}
+                    </td>
+                    <td className="p-3 text-sm sm:text-base font-semibold text-black">
                       {cart?.total}
                     </td>
                   </tr>
-                 )) }
-                </tbody>
-              </table>
-            </div>
-            <div className="self-end mr-[345px]">
-                <p className="p-2 py-3 border-b-2 border-b-customGray text-start  font-medium text-lg">Total: <span className="ml-10 normal-text text-green-500 font-semibold">{totalWishlistPrice.toFixed(2)}</span> </p>
-            </div>
-          </div>
+                ))
+              ) : (
+                <tr>
+                  <td
+                    colSpan={5}
+                    className="text-center py-10 text-[#666] font-medium"
+                  >
+                    No items in your wishlist 😢
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
         </div>
+      </div>
+
+      {/* ✅ Total Box */}
+      <div className="text-white bg-customRed px-3 py-2 flex items-center justify-between w-[200px] sm:w-[250px] mb-16">
+        <p className="p-2 text-start font-semibold text-base sm:text-lg">
+          Total:
+        </p>
+        <p className="text-white font-semibold text-base sm:text-lg">
+          {totalWishlistPrice?.toFixed(2) || "0.00"}
+        </p>
       </div>
     </div>
   );

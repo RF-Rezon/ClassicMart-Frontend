@@ -10,7 +10,7 @@ const Spninner = () => {
           height="80"
           width="80"
           radius="48"
-          color="#cca471"
+          color="#c40d2e"
           ariaLabel="watch-loading"
           wrapperStyle={{}}
           wrapperClass=""

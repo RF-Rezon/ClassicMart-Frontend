@@ -92,7 +92,7 @@ const ThirdSection = () => {
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.8, delay: 1.3, ease: "easeIn" }}
-                className="absolute inset-0 bg-customGold origin-left"
+                className="absolute inset-0 bg-customRed origin-left"
                 style={{ zIndex: 0 }}
               />
             </span>

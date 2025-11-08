@@ -92,27 +92,9 @@ const Product = () => {
 
   return (
     <>
-      <div className="min-h-screen pt-10 md:pt-0">
-        <div className="h-[200px] md:h-[350px] w-full relative">
-          <div className="w-full h-full absolute opacity-10">
-            <img
-              src={singleProduct?.images?.[0]}
-              className="w-full h-full object-cover"
-              alt=""
-            />
-          </div>
-          <div className="text-center space-y-4 absolute top-[40%] z-30 w-full mx-auto">
-            <p className="text-4xl font-semibold -tracking-tighter text-white uppercase">
-              {singleProduct.name}
-            </p>
-            <p className="text-lg font-normal italic text-white uppercase">
-              Most Classical Watch From Us
-            </p>
-          </div>
-        </div>
-
+      <div className="min-h-screen pt-10 md:pt-16 pb-10">
         {/* 🔧 Responsive Section */}
-        <div className="flex flex-col md:flex-row items-center justify-center w-full bg-[#090504] min-h-screen md:h-screen pb-20">
+        <div className="flex flex-col md:flex-row items-center justify-center w-full bg-[#ffffff] min-h-screen md:h-screen pb-20">
           {/* --- LEFT IMAGE SECTION --- */}
           <div
             className="flex items-center justify-center md:justify-end basis-full md:basis-[35%] px-4 md:px-0 py-6 md:py-0"
@@ -126,7 +108,7 @@ const Product = () => {
                     ? singleProduct?.images?.[0]
                     : singleProduct?.images?.[1]
                 }
-                className="w-full h-auto object-contain rounded-xl shadow-lg"
+                className="w-full h-auto object-contain rounded-xl shadow-2xl"
                 alt=""
                 drag
               />
@@ -140,35 +122,62 @@ const Product = () => {
             data-aos-duration="700"
           >
             <div className="w-full">
-              <p className="text-3xl md:text-6xl font-semibold text-customGold pb-8 md:pb-16 text-center uppercase">
-                {singleProduct?.name}
-              </p>
+              <div className="flex justify-center items-center w-full mt-10 mb-14">
+                <span className="relative inline-block text-3xl sm:text-4xl md:text-5xl text-center text-white px-3 py-2">
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.15, delay: 0.5, ease: "easeIn" }}
+                    className="relative z-10"
+                  >
+                    {singleProduct?.name}
+                  </motion.span>
+                  <motion.span
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 0.15, delay: 0.5, ease: "easeIn" }}
+                    className="absolute inset-0 bg-customRed origin-left"
+                    style={{ zIndex: 0 }}
+                  />
+                </span>
+              </div>
 
               <form
                 className="flex flex-col items-center space-y-8 md:space-y-10"
                 onSubmit={handleSubmit(onSubmit)}
               >
-                {/* ✅ Mobile Friendly Inputs */}
-                <div className="w-full md:w-[50%] mx-auto text-white text-base md:text-lg font-medium space-y-4">
-                  <div className="flex items-center justify-between">
-                    <label className="py-2 font-semibold">Price</label>
-                    <label className="py-2 font-semibold text-customGold">
-                      {singleProduct?.price}
+                <div className="w-full md:w-[50%] mx-auto text-white text-base md:text-lg font-medium space-y-5 mb-5">
+                  <div className="flex items-center justify-between border-b-2 border-b-[#c8c8c8]">
+                    <label className="py-2 font-semibold bg-customRed px-3">
+                      Price
+                    </label>
+                    <label className="py-2 font-semibold text-black">
+                      &#36;{singleProduct?.price}
+                    </label>
+                  </div>
+
+                  <div className="flex items-center justify-between border-b-2 border-b-[#c8c8c8]">
+                    <label className="py-2 font-semibold bg-customRed px-3">
+                      Vendor
+                    </label>
+                    <label className="py-2 text-black">
+                      {singleProduct?.vendor}
+                    </label>
+                  </div>
+
+                  <div className="flex items-center justify-between border-b-2 border-b-[#c8c8c8]">
+                    <label className="py-2 font-semibold bg-customRed px-3">
+                      Type
+                    </label>
+                    <label className="py-2 text-black">
+                      {singleProduct?.type}
                     </label>
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <label className="py-2 font-semibold">Vendor</label>
-                    <label className="py-2">{singleProduct?.vendor}</label>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <label className="py-2 font-semibold">Type</label>
-                    <label className="py-2">{singleProduct?.type}</label>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <label className="py-2 font-semibold">Color</label>
+                    <label className="py-2 font-semibold bg-customRed px-3">
+                      Color
+                    </label>
                     <div className="join">
                       {singleProduct?.colors?.map((color, index) => (
                         <input
@@ -184,7 +193,9 @@ const Product = () => {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <label className="py-2 font-semibold">Size</label>
+                    <label className="py-2 font-semibold bg-customRed px-3">
+                      Size
+                    </label>
                     <div className="join join-vertical md:join-horizontal">
                       {singleProduct?.sizes?.map((size, index) => (
                         <input
@@ -200,10 +211,12 @@ const Product = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between">
-                    <label className="py-2 font-semibold">Total</label>
-                    <label className="py-2 font-semibold text-green-500">
-                      {singleProduct?.price}
+                  <div className="flex items-center justify-between border-b-2 border-b-[#c8c8c8]">
+                    <label className="py-2 font-semibold bg-customRed px-3">
+                      Total
+                    </label>
+                    <label className="py-2 font-semibold text-black">
+                      &#36;{singleProduct?.price} only
                     </label>
                   </div>
                 </div>
@@ -212,7 +225,7 @@ const Product = () => {
                 <input
                   disabled={!user}
                   type="submit"
-                  className="uppercase w-[200px] mx-auto py-3 my-2 bg-buttonBg font-medium border-b-[3px] border-b-customGold text-white text-sm hover:bg-customGold transition duration-500 rounded-3xl"
+                  className="uppercase w-[200px] mx-auto py-3 my-2 bg-buttonBg font-medium border-b-[3px] border-b-customRed text-white text-sm hover:bg-customRed transition duration-500 rounded-3xl"
                   value={user ? "Add To Cart" : "No User - Disabled"}
                 />
               </form>
@@ -220,8 +233,8 @@ const Product = () => {
               {/* Wishlist */}
               <div className="flex items-center justify-center">
                 <Link
-                to="/wishlist"
-                   onClick={(e) => {
+                  to="/wishlist"
+                  onClick={(e) => {
                     if (!user) {
                       e.preventDefault(); // prevent redirect
                       Swal.fire({
@@ -232,7 +245,7 @@ const Product = () => {
                       });
                     }
                   }}
-                  className="uppercase w-2/3 py-3 my-3 border-b-customGold text-white px-4 bg-buttonBg font-medium border-b-[3px] text-sm hover:bg-customGold transition duration-500 rounded-3xl text-center"
+                  className="uppercase w-2/3 py-3 my-3 border-b-customRed text-white px-4 bg-buttonBg font-medium border-b-[3px] text-sm hover:bg-customRed transition duration-500 rounded-3xl text-center"
                 >
                   Watch Wishlist
                 </Link>

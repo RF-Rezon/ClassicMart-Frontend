@@ -1,5 +1,5 @@
 "use client";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/AuthContext";
@@ -9,14 +9,11 @@ const ModernNavbar = () => {
   const [isSticky, setIsSticky] = useState(false);
   const navigate = useNavigate();
 
-  // ✅ scroll handle
+  // ✅ scroll handle (smooth sticky)
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
+      if (window.scrollY > 100) setIsSticky(true);
+      else setIsSticky(false);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -28,8 +25,8 @@ const ModernNavbar = () => {
       text: `Do you want to log out surely?`,
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#cca471",
-      cancelButtonColor: "#d33",
+      confirmButtonColor: "#0D0C0C",
+      cancelButtonColor: "#c40d2e",
       confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
@@ -51,9 +48,9 @@ const ModernNavbar = () => {
 
   return (
     <div
-      className={`w-full z-[9999] transition-all duration-300 ${
+      className={`w-full z-[9999] transition-all duration-500 ease-in-out ${
         isSticky
-          ? "fixed top-0 left-0 bg-white shadow-md"
+          ? "fixed top-0 left-0 bg-white shadow-md animate-slideDown"
           : "relative bg-[#ffffff] shadow-lg"
       }`}
     >
@@ -82,13 +79,19 @@ const ModernNavbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[999] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <NavLink to="/" className="text-customGray">Home</NavLink>
+                <NavLink to="/" className="text-customGray">
+                  Home
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/allProducts" className="text-customGray">Products</NavLink>
+                <NavLink to="/allProducts" className="text-customGray">
+                  Products
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/" className="text-customGray">News</NavLink>
+                <NavLink to="/" className="text-customGray">
+                  News
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -103,16 +106,32 @@ const ModernNavbar = () => {
 
         {/* Center */}
         <div className="navbar-center hidden lg:flex space-x-8">
-          <NavLink to="/" className="text-customGray cursor-pointer">
-            <span className="inline-block relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customGold after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
-              Home
-            </span>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `text-customGray cursor-pointer relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customRed after:origin-left after:transition-transform after:duration-300 ${
+                isActive
+                  ? "after:scale-x-100 text-[#c40d2e]"
+                  : "after:scale-x-0"
+              } hover:after:scale-x-100 hover:text-customRed`
+            }
+          >
+            Home
           </NavLink>
-          <NavLink to="/allProducts" className="text-customGray cursor-pointer">
-            <span className="inline-block relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customGold after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
-              Products
-            </span>
+
+          <NavLink
+            to="/allProducts"
+            className={({ isActive }) =>
+              `text-customGray cursor-pointer relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customRed after:origin-left after:transition-transform after:duration-300 ${
+                isActive
+                  ? "after:scale-x-100 text-[#c40d2e]"
+                  : "after:scale-x-0"
+              } hover:after:scale-x-100 hover:text-customRed`
+            }
+          >
+            Products
           </NavLink>
+
           <NavLink
             to="/wishlist"
             onClick={(e) => {
@@ -126,11 +145,15 @@ const ModernNavbar = () => {
                 });
               }
             }}
-            className="text-customGray cursor-pointer"
+            className={({ isActive }) =>
+              `text-customGray cursor-pointer relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customRed after:origin-left after:transition-transform after:duration-300 ${
+                isActive
+                  ? "after:scale-x-100 text-[#c40d2e]"
+                  : "after:scale-x-0"
+              } hover:after:scale-x-100 hover:text-customRed`
+            }
           >
-            <span className="inline-block relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customGold after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
-              Wishlist
-            </span>
+            Wishlist
           </NavLink>
         </div>
 
@@ -138,7 +161,7 @@ const ModernNavbar = () => {
         <div className="flex items-center mt-4 md:mt-0">
           {!user ? (
             <Link
-              className="py-[10px] px-[26px] rounded-[5px] border-2 border-customGold hover:bg-customGold cursor-pointer transition-all duration-300 text-customGold hover:text-white"
+              className="py-[10px] px-[26px] rounded-[5px] border-2 border-customRed hover:bg-customRed cursor-pointer transition-all duration-300 text-customRed hover:text-white"
               to="/login"
             >
               Sign In
@@ -155,7 +178,7 @@ const ModernNavbar = () => {
                 </div>
               )}
               <button
-                className="py-[10px] px-[26px] rounded-[5px] border-2 border-customGold hover:bg-customGold cursor-pointer transition-all duration-300  text-customGold hover:text-white"
+                className="py-[10px] px-[26px] rounded-[5px] border-2 border-customRed hover:bg-customRed cursor-pointer transition-all duration-300 text-customRed hover:text-white"
                 onClick={handleLogOut}
               >
                 Log Out

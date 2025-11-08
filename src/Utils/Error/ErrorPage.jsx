@@ -12,7 +12,7 @@ const ErrorPage = () => {
 
           <a
             href="/"
-            className="mt-6 inline-block rounded bg-white text-[#2c2418] px-5 py-3 text-sm font-medium hover:bg-customGold focus:outline-none focus:ring"
+            className="mt-6 inline-block rounded bg-white text-[#2c2418] px-5 py-3 text-sm font-medium hover:bg-customRed focus:outline-none focus:ring"
           >
             Go Back Home
           </a>

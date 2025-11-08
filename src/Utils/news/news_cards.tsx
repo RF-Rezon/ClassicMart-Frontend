@@ -11,7 +11,7 @@ const News_cards = () => {
               alt={i.alt}
             />
           </div>
-          <div className="text-customGold space-y-1.5 md:space-y-2.5 w-full md:w-[80%]">
+          <div className="text-customRed space-y-1.5 md:space-y-2.5 w-full md:w-[80%]">
             <p className="flex items-center space-x-1">
               <span className="text-customGray">&#9679;</span>
               <span className="t-1 text-left text-customGray">{i.date}</span>

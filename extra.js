@@ -7,7 +7,7 @@
     <p className="text-customGray font-semibold text-xl">$750.00</p>
     <p className=""><ReactStars count={5} size={23} color1={"#cca471"}/></p>
     <p className="text-customGray font-normal text-lg pb-6 italic">Baggit</p>
-     <button className='uppercase w-52 py-3 px-4 bg-buttonBg font-medium  border-b-[3px] border-b-customGold text-white text-sm'>Add to Cart</button>
+     <button className='uppercase w-52 py-3 px-4 bg-buttonBg font-medium  border-b-[3px] border-b-customRed text-white text-sm'>Add to Cart</button>
 </div>
 </div>
 

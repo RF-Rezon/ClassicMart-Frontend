@@ -17,7 +17,7 @@ const About = () => {
       ref={sectionRef}
       className="min-h-screen mx-auto flex flex-col lg:flex-row items-center justify-center max-w-[1284px] my-[100px] md:my-[140px] lg:my-[186px] md:space-x-10 px-4"
     >
-      <div className="w-full lg:min-h-screen text-customGold flex flex-col lg:space-y-[86px] space-y-[20px] md:px-6 lg:px-0">
+      <div className="w-full lg:min-h-screen text-customRed flex flex-col lg:space-y-[86px] space-y-[20px] md:px-6 lg:px-0">
         <div className="lg:mr-10">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -66,7 +66,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true, amount: 0.2 }}
-            className="py-[14px] px-[26px] rounded-[5px] t-2 text-customGold border-2 border-customGold  hover:bg-customGold hover:text-white cursor-pointer transition-all duration-300 mt-10"
+            className="py-[14px] px-[26px] rounded-[5px] t-2 text-customRed border-2 border-customRed  hover:bg-customRed hover:text-white cursor-pointer transition-all duration-300 mt-10"
           >
             More About us
           </motion.button>
