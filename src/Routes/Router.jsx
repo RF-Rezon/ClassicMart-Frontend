@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import BasicLayout from "../BasicLayout";
+import About from "../Components/About/About";
 import Home from "../Components/Home/Home";
 import Login from "../Components/Login/Login";
 import Product from "../Components/Product/Product";
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: "/wishlist",
         element:<Wishlist />
+      },
+      {
+        path: "/about",
+        element:<About />
       },
     ],
   },

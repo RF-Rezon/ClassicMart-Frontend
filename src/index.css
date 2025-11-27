@@ -70,10 +70,10 @@ html {
 }
 
 .base-white-text {
-  @apply text-[#F8EDE3];
+  @apply text-[#c40d2e];
 }
 .base-white-bg {
-  @apply bg-[#F8EDE3];
+  @apply bg-[#f6e4ea];
 }
 
 /* Additional Settings */

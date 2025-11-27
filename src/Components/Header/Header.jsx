@@ -7,6 +7,9 @@ const Header = () => {
   const handleClicktoProductpage = ()=> {
     navigate("/allProducts")
   }
+  const handleClicktoAboutpage = ()=> {
+    navigate("/about")
+  }
   return (
     <>
       <div className="md:min-h-screen w-full relative flex-center overflow-hidden">
@@ -70,6 +73,7 @@ const Header = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 1 }}
+              onClick={()=> handleClicktoAboutpage()}
               className="py-[12px] px-[26px] rounded-[5px] cursor-pointer t-2 text-[#2c2418] bg-white w-full md:w-[135px] border-2"
             >
               Our Vision

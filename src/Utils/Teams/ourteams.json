@@ -1,0 +1,44 @@
+[
+  {
+    "img": "images/about/1.jpg",
+    "alt": "1",
+    "name": "Marcus Hale",
+    "title": "Creative Director",
+    "email": "marcus.hale@gmail.com"
+  },
+  {
+    "img": "images/about/2.jpg",
+    "alt": "2",
+    "name": "Aiden Clark",
+    "title": "Lead Watch Designer",
+    "email": "aiden.clark@gmail.com"
+  },
+  {
+    "img": "images/about/3.jpg",
+    "alt": "3",
+    "name": "Chloe Anderson",
+    "title": "Interior Stylist",
+    "email": "chloe.anderson@gmail.net"
+  },
+  {
+    "img": "images/about/4.jpg",
+    "alt": "4",
+    "name": "Noah Mitchell",
+    "title": "Client Experience Manager",
+    "email": "noah.mitchell@gmailb.co"
+  },
+  {
+    "img": "images/about/5.jpg",
+    "alt": "5",
+    "name": "Ava Morgan",
+    "title": "Lighting Specialist",
+    "email": "ava.morgan@gmail.com"
+  },
+  {
+    "img": "images/about/6.jpg",
+    "alt": "6",
+    "name": "Henry Dawson",
+    "title": "Power Planner",
+    "email": "henry.dawson@gmail.com"
+  }
+]

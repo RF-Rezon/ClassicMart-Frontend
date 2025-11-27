@@ -44,7 +44,7 @@ const Allproducts = () => {
                     alt="img" 
                   />
                 </figure>
-                <div className="card-body text-customGray">
+                <div className="card-body text-black">
                   <div className="w-full flex items-center justify-between">
                     <h2 className="card-title">{singleWatch?.name}</h2>
                     <h3 className="card-title"> {singleWatch?.price}</h3>

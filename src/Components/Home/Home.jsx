@@ -1,8 +1,8 @@
-import About from "../About/About";
+import AboutUs from "../AboutUs/AboutUs";
 import CarouselSection from "../carouselSection/carouselSection";
 import ExpertiseSection from "../expertiseSection/expertiseSection";
 import Header from "../Header/Header";
-import News from "../news/news";
+// import News from "../news/news";
 import Partners from "../Partners/Partners";
 import ThirdSection from "../ThirdSection/ThirdSection";
 
@@ -13,11 +13,11 @@ const Home = () => {
     <>
       <div className="min-h-screen">
         <Header />
-        <About />
+        <AboutUs />
         <ThirdSection />
         <CarouselSection />
         <ExpertiseSection />
-        <News />
+        {/* <News /> */}
         <Partners />
       </div>
     </>
