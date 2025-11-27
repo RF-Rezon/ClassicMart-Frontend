@@ -8,7 +8,7 @@ const Why_Us = () => {
   return (
     <div
       ref={sectionRef}
-      className="min-h-screen mx-auto flex flex-col items-center justify-center max-w-[1284px] mt-[100px] md:mt-[140px] lg:mt-[80px] px-4"
+      className="mx-auto flex flex-col items-center justify-center max-w-[1284px] mt-[100px] px-4 my-20 pt-20"
     >
       <div className="text-center w-full md:w-[65%] mb-12">
         <motion.p
@@ -26,7 +26,7 @@ const Why_Us = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: true, amount: 0.2 }}
-          className="t-6 text-customRed"
+          className="t-6 text-customRed pb-6"
         >
           Elevate Your Space with <br /> Expertise & Elegance
         </motion.p>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useSWR from "swr";
 import { AuthContext } from "../../Context/AuthContext";
 
@@ -8,6 +9,7 @@ const Wishlist = () => {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const { data, error, isLoading } = useSWR(`${webUrl}/wishlist`, fetcher);
   const [items, setItems] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (data) setItems(data);
@@ -123,15 +125,26 @@ const Wishlist = () => {
           </table>
         </div>
       </div>
-
+      <div className="w-full md:w-5/6 flex items-center justify-end space-x-4">
       {/* ✅ Total Box */}
-      <div className="text-white bg-customRed px-3 py-2 flex items-center justify-between w-[200px] sm:w-[250px] mb-16">
+      <div className="text-white bg-customRed px-3 py-2 flex items-center justify-between w-[200px] sm:w-[250px] mb-16 border-2 border-customRed">
         <p className="p-2 text-start font-semibold text-base sm:text-lg">
           Total:
         </p>
         <p className="text-white font-semibold text-base sm:text-lg">
           {totalWishlistPrice?.toFixed(2) || "0.00"}
         </p>
+      </div>
+
+      {/* ✅ Checkout Button */}
+      {currentUserCart?.length > 0 && (
+        <button
+          onClick={() => navigate("/checkout")}
+          className="hover:text-white bg-white text-black border-2 border-customRed hover: hover:bg-customRed px-3 py-2 flex items-center justify-between w-[200px] sm:w-[250px] mb-16 transition-all"
+        >
+          <p className="p-2 text-start font-semibold text-base sm:text-lg">Proceed to Checkout</p>
+        </button>
+      )}
       </div>
     </div>
   );

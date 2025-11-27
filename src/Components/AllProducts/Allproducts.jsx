@@ -51,9 +51,7 @@ const Allproducts = () => {
                   </div>
                   <p className="font-semibold text-customRed">{singleWatch?.vendor}</p>
                   <p className="line-clamp-3">
-                    A card component has a figure, a body part, and inside body
-                    there are title and actions parts card component has a
-                    figure, a body part, and inside.
+                    {singleWatch?.description}
                   </p>
                   <div className="card-actions justify-end mt-5">
                     <Link

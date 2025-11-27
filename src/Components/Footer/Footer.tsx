@@ -15,11 +15,11 @@ const Footer = () => {
         <div className="flex-[0.6] flex flex-col justify-between">
           <div className="grid grid-cols-1 md:grid-cols-2 w-full md:w-[47%] md:mx-auto gap-8 md:py-[70px] py-[50px]">
             <div>
-              <ul className="text-center space-y-1.5 text-white">
+              <ul className="text-center">
                 <li className="mb-4 t-1 text-[#ffffffbe] text-customRed">
                   Sitemap
                 </li>
-                <li className="t-4 cursor-pointer text-customGray">
+                <li className="t-4 cursor-pointer text-customGray mb-3">
                   <Link
                     to="/about"
                     className="inline-block relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customRed after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
@@ -27,7 +27,7 @@ const Footer = () => {
                     About
                   </Link>
                 </li>
-                <li className="t-4 cursor-pointer text-customGray">
+                <li className="t-4 cursor-pointer text-customGray mb-3">
                   <Link
                     to="/allProducts"
                     className="inline-block relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customRed after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
@@ -35,24 +35,34 @@ const Footer = () => {
                     Projects
                   </Link>
                 </li>
-                {/* <li className="t-4 cursor-pointer text-customGray">
+                {/* <li className="t-4 cursor-pointer text-customGray mb-3">
                   <span className="inline-block relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customRed after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
                     News
                   </span>
                 </li> */}
-                <li className="t-4 cursor-pointer text-customGray">
-                  <span className="inline-block relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customRed after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+                <li className="t-4 cursor-pointer text-customGray mb-3">
+                  {" "}
+                  <Link
+                    to="/contact"
+                    className="inline-block relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customRed after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
+                  >
                     Contact
-                  </span>
+                  </Link>
+                </li>
+                <li className="t-4 cursor-pointer text-customGray mb-3">
+                  <Link
+                    to="/history"
+                    className="inline-block relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customRed after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
+                  >
+                    Order History
+                  </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <ul className="text-center space-y-1.5 text-white">
-                <li className="mb-4 t-1 text-[#ffffffbe] text-customRed">
-                  Socials
-                </li>
-                <li className="t-4 cursor-pointer text-customGray">
+              <ul className="text-center">
+                <li className="mb-4 t-1 text-customRed">Socials</li>
+                <li className="t-4 cursor-pointer text-customGray mb-3">
                   <Link
                     to="https://facebook.com"
                     className="inline-block relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customRed after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
@@ -60,7 +70,7 @@ const Footer = () => {
                     Facebook
                   </Link>
                 </li>
-                <li className="t-4 cursor-pointer text-customGray">
+                <li className="t-4 cursor-pointer text-customGray mb-3">
                   <Link
                     to="https://instagram.com"
                     className="inline-block relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customRed after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
@@ -69,15 +79,15 @@ const Footer = () => {
                   </Link>
                 </li>
 
-                {/* <li className="t-4 cursor-pointer text-customGray">
+                <li className="t-4 cursor-pointer text-customGray mb-3">
                   <Link
                     to="https://linkedin.com"
                     className="inline-block relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customRed after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
                   >
                     LinkedIn
                   </Link>
-                </li> */}
-                <li className="t-4 cursor-pointer text-customGray">
+                </li>
+                <li className="t-4 cursor-pointer text-customGray mb-3">
                   <Link
                     to="https://x.com"
                     className="inline-block relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customRed after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
