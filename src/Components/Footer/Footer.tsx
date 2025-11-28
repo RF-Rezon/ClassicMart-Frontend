@@ -32,7 +32,7 @@ const Footer = () => {
                     to="/allProducts"
                     className="inline-block relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customRed after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
                   >
-                    Projects
+                    Products
                   </Link>
                 </li>
                 {/* <li className="t-4 cursor-pointer text-customGray mb-3">

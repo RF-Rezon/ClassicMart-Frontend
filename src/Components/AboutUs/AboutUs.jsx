@@ -1,10 +1,15 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
-const AboutUs = () => {
+ const AboutUs = () => {
   const sectionRef = useRef(null);
+  const navigate = useNavigate();
 
+  const handleClicktoAboutpage = ()=> {
+    navigate("/about")
+  }
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
@@ -47,8 +52,8 @@ const AboutUs = () => {
             viewport={{ once: true, amount: 0.2 }}
             className="t-2-light md:pb-5 pb-3 text-left text-customGray"
           >
-            At Classicmart, we believe that every space has a story to tell. As a
-            premierwrist watch design and room decorating agency.
+            At Classicmart, we believe that every space has a story to tell. As
+            a premierwrist watch design and room decorating agency.
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -66,6 +71,7 @@ const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true, amount: 0.2 }}
+            onClick={()=>handleClicktoAboutpage()}
             className="py-[14px] px-[26px] rounded-[5px] t-2 text-customRed border-2 border-customRed  hover:bg-customRed hover:text-white cursor-pointer transition-all duration-300 mt-10"
           >
             More About us

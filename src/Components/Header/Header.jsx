@@ -7,9 +7,7 @@ const Header = () => {
   const handleClicktoProductpage = ()=> {
     navigate("/allProducts")
   }
-  const handleClicktoAboutpage = ()=> {
-    navigate("/about")
-  }
+
   return (
     <>
       <div className="md:min-h-screen w-full relative flex-center overflow-hidden">
@@ -69,15 +67,6 @@ const Header = () => {
             </motion.p>
           </div>
           <div className="md:space-x-8 space-y-2 md:space-y-0 flex flex-col md:flex-row items-start justify-start w-[90%] md:w-full px-12 pt-4 md:ml-12 pb-10">
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 1 }}
-              onClick={()=> handleClicktoAboutpage()}
-              className="py-[12px] px-[26px] rounded-[5px] cursor-pointer t-2 text-[#2c2418] bg-white w-full md:w-[135px] border-2"
-            >
-              Our Vision
-            </motion.button>
             <motion.button
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}

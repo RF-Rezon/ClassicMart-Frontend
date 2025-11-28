@@ -73,8 +73,11 @@ html {
   @apply text-[#c40d2e];
 }
 .base-white-bg {
-  @apply bg-[#f6e4ea];
+  @apply bg-[#f9f9f9];
 }
+/* .base-white-bg {
+  @apply bg-[#f6e4ea];
+} */
 
 /* Additional Settings */
 .flex-center {

@@ -109,10 +109,10 @@ const ModernNavbar = () => {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `text-customGray cursor-pointer relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customRed after:origin-left after:transition-transform after:duration-300 ${
+              ` cursor-pointer relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customRed after:origin-left after:transition-transform after:duration-300 ${
                 isActive
-                  ? "after:scale-x-100 text-[#c40d2e]"
-                  : "after:scale-x-0"
+                  ? "after:scale-x-100 text-customRed"
+                  : "after:scale-x-0 text-customGray"
               } hover:after:scale-x-100 hover:text-customRed`
             }
           >
@@ -122,10 +122,10 @@ const ModernNavbar = () => {
           <NavLink
             to="/allProducts"
             className={({ isActive }) =>
-              `text-customGray cursor-pointer relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customRed after:origin-left after:transition-transform after:duration-300 ${
+              ` cursor-pointer relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customRed after:origin-left after:transition-transform after:duration-300 ${
                 isActive
                   ? "after:scale-x-100 text-[#c40d2e]"
-                  : "after:scale-x-0"
+                  : "after:scale-x-0 text-customGray"
               } hover:after:scale-x-100 hover:text-customRed`
             }
           >
@@ -146,10 +146,10 @@ const ModernNavbar = () => {
               }
             }}
             className={({ isActive }) =>
-              `text-customGray cursor-pointer relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customRed after:origin-left after:transition-transform after:duration-300 ${
+              ` cursor-pointer relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-customRed after:origin-left after:transition-transform after:duration-300 ${
                 isActive
                   ? "after:scale-x-100 text-[#c40d2e]"
-                  : "after:scale-x-0"
+                  : "after:scale-x-0 text-customGray"
               } hover:after:scale-x-100 hover:text-customRed`
             }
           >
