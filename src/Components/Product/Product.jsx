@@ -226,7 +226,7 @@ const Product = () => {
                   disabled={!user}
                   type="submit"
                   className="uppercase w-[200px] mx-auto py-3 my-2 bg-buttonBg font-medium border-b-[3px] border-b-customRed text-white text-sm hover:bg-customRed transition duration-500 rounded-3xl"
-                  value={user ? "Add To Cart" : "No User - Disabled"}
+                  value={user ? "Add To Wishlist" : "Login To Add"}
                 />
               </form>
 

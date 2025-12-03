@@ -8,7 +8,8 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/AuthContext";
 const Login = () => {
   const navigate = useNavigate();
-  const { normalLogin, LoginWithGoogle, webUrl , setLoading} = useContext(AuthContext);
+  const { normalLogin, LoginWithGoogle, webUrl, setLoading } =
+    useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -16,62 +17,65 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const handleGoogleLogin = () => {
-    LoginWithGoogle()
-      .then((result) => {
-        const loggedUser = result.user;
-        axios
-          .post(`${webUrl}/users`, {
-            name: loggedUser?.displayName,
-            email: loggedUser?.email,
-          })
-          .then(() => {
-            Swal.fire({
-              icon: "success",
-              title: "Ya!..",
-              text: `Sign in successfully with google.`,
-            }),
-              navigate("/");
-          });
-      })
-      .catch((err) => {
-        Swal.fire({
-          icon: "error",
-          title: "Oops!..",
-          text: `Sign in problem with google.`,
-        });
-        
+const handleGoogleLogin = () => {
+  setLoading(true);
+  LoginWithGoogle()
+    .then((result) => {
+      const loggedUser = result.user;
+      return axios.post(`${webUrl}/users`, {
+        name: loggedUser?.displayName,
+        email: loggedUser?.email,
       });
-  };
-
-  const onSubmit = (data) => {
-    normalLogin(data?.email, data?.password)
-      .then(() => {
-        Swal.fire({
-          icon: "success",
-          title: "Ya!..",
-          text: `Sign in successfully.`,
-        }),
-          navigate("/");
-      })
-      .catch(() => {
-        Swal.fire({
-          icon: "error",
-          title: "OOps!..",
-          text: `Sign in problem with Email And Password.`,
-        });
-                navigate("/");
+    })
+    .then(() => {
+      setLoading(false);
+      Swal.fire({
+        icon: "success",
+        title: "Ya!..",
+        text: "Sign in successfully with Google.",
       });
-  };
+      navigate("/");
+    })
+    .catch((err) => {
+      setLoading(false);
+      console.error("Google login error:", err);
+      Swal.fire({
+        icon: "error",
+        title: "Oops!..",
+        text: "Sign in problem with Google.",
+      });
+    });
+};
 
-
+const onSubmit = (data) => {
+  setLoading(true);
+  normalLogin(data?.email, data?.password)
+    .then(() => {
+      setLoading(false);
+      Swal.fire({
+        icon: "success",
+        title: "Ya!..",
+        text: "Sign in successfully.",
+      });
+      navigate("/");
+    })
+    .catch((err) => {
+      setLoading(false); 
+      console.error("Login error:", err);
+      Swal.fire({
+        icon: "error",
+        title: "Oops!..",
+        text: "Sign in problem with Email and Password.",
+      });
+    });
+};
   return (
     <div className="bg-[#090504]">
       <div className="overflow-hidden min-h-screen">
         <section className="relative flex flex-wrap lg:h-screen lg:items-center">
           <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24 text-white">
             <div className="mx-auto max-w-lg text-center pb-6">
-               <span className="relative inline-block text-2xl font-bold sm:text-3xl px-3 py-2">
+              <span className="relative inline-block text-2xl font-bold sm:text-3xl px-3 py-2">
                 <motion.span
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -97,11 +101,22 @@ const Login = () => {
                 <label className="sr-only">Email</label>
                 <div className="relative">
                   <input
-                    {...register("email")}
-                    className="w-full rounded-sm border-gray-200 p-4 pe-12 text-base font-medium shadow-sm text-white "
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: "Invalid email address",
+                      },
+                    })}
+                    className="w-full rounded-sm border-gray-200 p-4 pe-12 text-base font-medium shadow-sm text-white"
                     placeholder="Enter email"
                     type="email"
                   />
+                  {errors.email && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.email.message}
+                    </p>
+                  )}
                 </div>
               </div>
               <div>
@@ -109,16 +124,30 @@ const Login = () => {
                 <div className="relative">
                   <input
                     type="password"
-                    {...register("password")}
+                    {...register("password", {
+                      required: "Password is required",
+                      minLength: {
+                        value: 6,
+                        message: "Password must be at least 6 characters",
+                      },
+                    })}
                     className="w-full rounded-sm border-gray-200 p-4 pe-12 text-base font-medium shadow-sm text-white"
                     placeholder="Enter password"
                   />
+                  {errors.password && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.password.message}
+                    </p>
+                  )}
                 </div>
               </div>
               <div className="flex items-center justify-between">
                 <p className="text-sm  font-medium text-customGray">
                   No account?
-                  <a className="underline ml-3 text-customRed font-semibold" href="/register">
+                  <a
+                    className="underline ml-3 text-customRed font-semibold"
+                    href="/register"
+                  >
                     Sign up
                   </a>
                 </p>

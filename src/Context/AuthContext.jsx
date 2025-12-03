@@ -14,7 +14,6 @@ import app from "./app.js";
 
 export const AuthContext = createContext(null);
 let webUrl = import.meta.env.VITE_LOCAL_BACKEND;
-// let webUrl = `https://classicmart-backend.vercel.app`;
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
