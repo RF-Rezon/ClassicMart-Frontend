@@ -7,8 +7,9 @@ import { AuthContext } from "../../Context/AuthContext";
 const Wishlist = () => {
   const { webUrl, user } = useContext(AuthContext);
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
-  const { data, error, isLoading } = useSWR(`${webUrl}/wishlist`, fetcher);
+  const { data, error, isLoading, mutate } = useSWR(`${webUrl}/wishlist`, fetcher);
   const [items, setItems] = useState([]);
+  const [deleting, setDeleting] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,6 +23,45 @@ const Wishlist = () => {
     (acc, cart) => acc + cart.total,
     0
   );
+
+  // Delete handler function
+  const handleDelete = async (id) => {
+    if (!window.confirm("Are you sure you want to remove this item?")) {
+      return;
+    }
+
+    console.log("Deleting item with ID:", id);
+    console.log("API URL:", `${webUrl}/wishlist/${id}`);
+
+    setDeleting(id);
+    try {
+      const response = await fetch(`${webUrl}/wishlist/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      console.log("Response status:", response.status);
+      const result = await response.json();
+      console.log("Response data:", result);
+
+      if (response.ok) {
+        // Update local state
+        setItems((prev) => prev.filter((item) => item._id !== id));
+        // Revalidate SWR cache
+        mutate();
+        alert("Item removed successfully!");
+      } else {
+        throw new Error(result.error || "Failed to delete");
+      }
+    } catch (err) {
+      console.error("Delete error:", err);
+      alert(`Failed to remove item: ${err.message}`);
+    } finally {
+      setDeleting(null);
+    }
+  };
 
   return (
     <div className="bg-white min-h-screen w-full flex flex-col items-center px-4 sm:px-6 md:px-10">
@@ -68,6 +108,9 @@ const Wishlist = () => {
                 <th className="text-sm sm:text-base font-semibold text-customRed text-left p-3">
                   Price
                 </th>
+                <th className="text-sm sm:text-base font-semibold text-customRed p-3 pr-6">
+                  Action
+                </th>
               </tr>
             </thead>
 
@@ -109,12 +152,37 @@ const Wishlist = () => {
                     <td className="p-3 text-sm sm:text-base font-semibold text-black">
                       {cart?.total}
                     </td>
+                    <td className="p-3 mx-auto">      
+                        <button
+                        onClick={() => handleDelete(cart._id)}
+                        disabled={deleting === cart._id}
+                        className="w-8 h-8 flex items-center justify-center rounded-full bg-red-100 hover:bg-customRed text-customRed hover:text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                        title="Remove from wishlist"
+                      >
+                        {deleting === cart._id ? (
+                          <span className="text-xs">...</span>
+                        ) : (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        )}
+                      </button>     
+                    </td>
                   </tr>
                 ))
               ) : (
                 <tr>
                   <td
-                    colSpan={5}
+                    colSpan={6}
                     className="text-center py-10 text-[#666] font-medium"
                   >
                     No items in your wishlist 😢
@@ -126,28 +194,30 @@ const Wishlist = () => {
         </div>
       </div>
       <div className="w-full md:w-5/6 flex items-center justify-end space-x-4">
-      {/* ✅ Total Box */}
-      <div className="text-white bg-customRed px-3 py-2 flex items-center justify-between w-[200px] sm:w-[250px] mb-16 border-2 border-customRed">
-        <p className="p-2 text-start font-semibold text-base sm:text-lg">
-          Total:
-        </p>
-        <p className="text-white font-semibold text-base sm:text-lg">
-          {totalWishlistPrice?.toFixed(2) || "0.00"}
-        </p>
-      </div>
+        {/* ✅ Total Box */}
+        <div className="text-white bg-customRed px-3 py-2 flex items-center justify-between w-[200px] sm:w-[250px] mb-16 border-2 border-customRed">
+          <p className="p-2 text-start font-semibold text-base sm:text-lg">
+            Total:
+          </p>
+          <p className="text-white font-semibold text-base sm:text-lg">
+            {totalWishlistPrice?.toFixed(2) || "0.00"}
+          </p>
+        </div>
 
-      {/* ✅ Checkout Button */}
-      {currentUserCart?.length > 0 && (
-        <button
-          onClick={() => navigate("/checkout")}
-          className="hover:text-white bg-white text-black border-2 border-customRed hover: hover:bg-customRed px-3 py-2 flex items-center justify-between w-[200px] sm:w-[250px] mb-16 transition-all"
-        >
-          <p className="p-2 text-start font-semibold text-base sm:text-lg">Proceed to Checkout</p>
-        </button>
-      )}
+        {/* ✅ Checkout Button */}
+        {currentUserCart?.length > 0 && (
+          <button
+            onClick={() => navigate("/checkout")}
+            className="hover:text-white bg-white text-black border-2 border-customRed hover:bg-customRed px-3 py-2 flex items-center justify-between w-[200px] sm:w-[250px] mb-16 transition-all"
+          >
+            <p className="p-2 text-start font-semibold text-base sm:text-lg">
+              Proceed to Checkout
+            </p>
+          </button>
+        )}
       </div>
     </div>
   );
 };
 
-export default Wishlist;
+export default Wishlist

@@ -89,8 +89,8 @@ const ModernNavbar = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/" className="text-customGray">
-                  News
+                <NavLink to="/wishlist" className="text-customGray">
+                  Wishlist
                 </NavLink>
               </li>
             </ul>
